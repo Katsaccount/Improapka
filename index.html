@@ -8,109 +8,127 @@
 <body>
 
 <style>
-  /*menší velikost obrazovky na PC, velikost obrazovky mobil*/
-  @media only screen and (max-width: 600px) {
-  .carousel-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    width: 100%;
-    height: 100%;
-  }
+/*menší velikost obrazovky na PC, velikost obrazovky mobil*/
+@media only screen and (max-width: 600px) {
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
 
-  .arrowLeft, .arrowRight {
-    font-size: 2rem;
-    background: none;
-    border: none;
-    cursor: pointer;
-    z-index: 10;
-    display: inline-block !important;
-  }
+.carousel-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
 
-  .container {
-    width: 80%;
-    height: 100%;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    position: relative;
-  }
+.arrowLeft, .arrowRight {
+  font-size: 2rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 10;
+  display: inline-block !important;
+}
 
-  .slide {
-    display: none;
-    flex-shrink: 0;
-    width: 100%;
-    justify-content: center;
-    align-items: center;
-  }
+.container {
+  width: 80%;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
 
-  .slide.active {
-    display: flex;
-  }
+.slide {
+  display: none;
+  flex-shrink: 0;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
 
-  .items {
-    text-align: center;
-  }
+.slide.active {
+  display: flex;
+}
 
-  .textStyle {
-    background-color: rgb(215, 219, 218);
-    color: rgb(64, 66, 70);
-    border-radius: 5vw;
-    font-size: 5vw !important;
-    padding: 2vw !important;
-    margin-top: 5vw !important;
-    font-family: Arial, Helvetica, sans-serif;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  }
+.items {
+  text-align: center;
+}
 
-  .images {
-    width: 50vw !important;
-  }
-  }
+.textStyle {
+  background-color: rgb(215, 219, 218);
+  color: rgb(64, 66, 70);
+  border-radius: 5vw;
+  font-size: 5vw !important;
+  padding: 2vw !important;
+  margin-top: 5vw !important;
+  font-family: Arial, Helvetica, sans-serif;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
 
-  /*normální velikost obrazovky na PC*/
-  .container {
-    display: flex;
-    flex: inline;
-  }
+.images {
+  width: 50vw !important;
+}
 
-  .items {
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-  }
+}
 
-  #itemstyle {
-    margin-right: 2vw;
-    width: 100%;
-  }
+/*normální velikost obrazovky na PC*/
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
 
-  .textStyle {
-    background-color: rgb(215, 219, 218);
-    color: rgb(64, 66, 70);
-    border-radius: 5vw;
-    font-size: 2.5vw;
-    padding: 1.2vw;
-    margin-top: 3vw;
-    margin-right: 4vw;
-    font-family: Arial, Helvetica, sans-serif;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  }
+.container {
+display: flex;
+justify-content: center;
+align-items: center;
+height: 100vh;
+}
 
-  .arrowLeft, .arrowRight {
-    font-size: 2rem;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 1rem;
-    z-index: 10;
-    display: none;
-  }
 
-  .images {
-    width:20vw;
-  }
+.items {
+  text-align: center;
+  width: 100%;
+}
+
+#itemstyle {
+  width: 100%;
+}
+
+.textStyle {
+  background-color: rgb(215, 219, 218);
+  color: rgb(64, 66, 70);
+  border-radius: 5vw;
+  font-size: 2.5vw;
+  padding: 1.2vw;
+  margin-top: 3vw !important;
+  font-family: Arial, Helvetica, sans-serif;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  align-items: center;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.arrowLeft, .arrowRight {
+  font-size: 2rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 1rem;
+  z-index: 10;
+  display: none;
+}
+
+.images {
+  width:25vw;
+  align-items: center;
+  text-align: center;
+}
 
   </style>
 </head>
@@ -205,9 +223,6 @@ function showWordEmoce(id) {
 }
 </script>
 
-
-</body>
-</html>
 
 </body>
 </html>
