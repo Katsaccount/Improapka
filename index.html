@@ -101,8 +101,8 @@ height: 100vh;
 }
 
 .textStyle {
-  background-color: rgb(215, 219, 218);
-  color: rgb(64, 66, 70);
+  background-color: lightgray;
+  color: black;
   border-radius: 5vw;
   font-size: 2.5vw;
   padding: 1.2vw;
@@ -141,27 +141,27 @@ height: 100vh;
     <div class="slide povolani" id="itemstyle">
       <div class="items">
       <!-- placeholder obrázek (povolání) ↓ -->
-        <img src="Images/Bag1.png" alt="povolani" class="images">
-        <div id="randomPovolani1" onclick="showWordPovolani('randomPovolani1')" class="textStyle">Možnost 1</div>
-        <div id="randomPovolani2" onclick="showWordPovolani('randomPovolani2')" class="textStyle">Možnost 2</div>
+         <img src="Images/Bag1.png" alt="povolani" class="images" onclick="showWordPovolani()">
+        <div id="randomPovolani1" class="textStyle" onclick="lockedIn('randomPovolani1')">Možnost 1</div>
+        <div id="randomPovolani2" class="textStyle" onclick="lockedIn('randomPovolani2')">Možnost 2</div>
       </div>
     </div>
 
     <div class="slide misto" id="itemstyle">
       <div class="items">
       <!-- placeholder obrázek (místo) ↓ -->
-        <img src="Images/Bag2.png" alt="misto" class="images">
-        <div id="randomMisto1" onclick="showWordMisto('randomMisto1')" class="textStyle">Možnost 1</div>
-        <div id="randomMisto2" onclick="showWordMisto('randomMisto2')" class="textStyle">Možnost 2</div>
+        <img src="Images/Bag2.png" alt="misto" class="images" onclick="showWordMisto()">
+        <div id="randomMisto1" class="textStyle" onclick="lockedIn('randomMisto1')">Možnost 1</div>
+        <div id="randomMisto2" class="textStyle" onclick="lockedIn('randomMisto2')">Možnost 2</div>
       </div>
     </div>
 
     <div class="slide emoce" id="itemstyle">
       <div class="items">
       <!-- placeholder obrázek (emoce) ↓ -->
-        <img src="Images/Bag3.png" alt="emoce" class="images">
-        <div id="randomEmoce1" onclick="showWordEmoce('randomEmoce1')" class="textStyle">Možnost 1</div>
-        <div id="randomEmoce2" onclick="showWordEmoce('randomEmoce2')" class="textStyle">Možnost 2</div>
+         <img src="Images/Bag3.png" alt="emoce" class="images" onclick="showWordEmoce()">
+        <div id="randomEmoce1" class="textStyle" onclick="lockedIn('randomEmoce1')">Možnost 1</div>
+        <div id="randomEmoce2" class="textStyle" onclick="lockedIn('randomEmoce2')">Možnost 2</div>
       </div>
     </div>
   </div>
@@ -171,6 +171,7 @@ height: 100vh;
 
 
 <script>
+// šipky - funkce slides
 const slides = document.querySelectorAll('.slide');
 let currentIndex = 1;
 
@@ -192,34 +193,85 @@ function showNext() {
 
 updateSlides();
 
-    //placeholder slova - povolání
-  const wordsPovolani = ["Architekt", "Automechanik", "Kuchař", "Hasič", "Zedník", "Policista", "Zubař", "Doktor", "Číšník", "Učitel", "Veterinář", "Astronaut", "Pošťák", "Květinář", "Popelář", "Zpěvák", "Herec", "Uklízeč", "Sekretář", "Malíř", "Designér", "Cukrář", "Kadeřník", "Farmář", "Kominík"];
 
-function showWordPovolani(id) {
-  const randomIndex = Math.floor(Math.random() * wordsPovolani.length);
-  const randomWord = wordsPovolani[randomIndex];
-  const textDiv = document.getElementById(id);
-  textDiv.textContent = randomWord;
+// funkce zamykání - kontrola
+const lockedWords = {
+  randomMisto1: false,
+  randomMisto2: false,
+  randomPovolani1: false,
+  randomPovolani2: false
+};
+
+// losování slov funkce
+function showWordPovolani() {
+  const options1 = ["Architekt", "Automechanik", "Kuchař", "Hasič", "Zedník", "Policista", "Zubař", "Doktor", "Číšník", "Učitel", "Veterinář", "Astronaut", "Pošťák", "Květinář", "Popelář", "Zpěvák", "Herec", "Uklízeč", "Sekretář", "Malíř", "Designér", "Cukrář", "Kadeřník", "Farmář", "Kominík"];
+  const options2 = ["Architekt", "Automechanik", "Kuchař", "Hasič", "Zedník", "Policista", "Zubař", "Doktor", "Číšník", "Učitel", "Veterinář", "Astronaut", "Pošťák", "Květinář", "Popelář", "Zpěvák", "Herec", "Uklízeč", "Sekretář", "Malíř", "Designér", "Cukrář", "Kadeřník", "Farmář", "Kominík"];
+  // funkce zamykání
+  if (!lockedWords.randomPovolani1) {
+    const word1 = options1[Math.floor(Math.random() * options1.length)];
+    document.getElementById("randomPovolani1").textContent = word1;
+  }
+
+  if (!lockedWords.randomPovolani2) {
+    const word2 = options2[Math.floor(Math.random() * options2.length)];
+    document.getElementById("randomPovolani2").textContent = word2;
+  }
 }
 
-    //placeholder slova - místa
-  const wordsMisto = ["Ostrov", "Zámek", "Zábavní park", "Škola", "Ve vlaku", "Na lodi", "Na zastávce", "Restaurace", "Obchod", "Zahrada", "Les", "Pláž", "Farma", "Důl", "Peklo", "Nebe", "Moře", "Podzemí", "Vesmír", "ZOO", "Akvárium", "Park", "Hory", "Banka", "Kino"];
+function showWordMisto() {
+  const options1 = ["Ostrov", "Zámek", "Zábavní park", "Škola", "Ve vlaku", "Na lodi", "Na zastávce", "Restaurace", "Obchod", "Zahrada", "Les", "Pláž", "Farma", "Důl", "Peklo", "Nebe", "Moře", "Podzemí", "Vesmír", "ZOO", "Akvárium", "Park", "Hory", "Banka", "Kino"];
+  const options2 = ["Ostrov", "Zámek", "Zábavní park", "Škola", "Ve vlaku", "Na lodi", "Na zastávce", "Restaurace", "Obchod", "Zahrada", "Les", "Pláž", "Farma", "Důl", "Peklo", "Nebe", "Moře", "Podzemí", "Vesmír", "ZOO", "Akvárium", "Park", "Hory", "Banka", "Kino"];
+  // funkce zamykání
+  if (!lockedWords.randomMisto1) {
+    const word1 = options1[Math.floor(Math.random() * options1.length)];
+    document.getElementById("randomMisto1").textContent = word1;
+  }
 
-function showWordMisto(id) {
-  const randomIndex = Math.floor(Math.random() * wordsMisto.length);
-  const randomWord = wordsMisto[randomIndex];
-  const textDiv = document.getElementById(id);
-  textDiv.textContent = randomWord;
+  if (!lockedWords.randomMisto2) {
+    const word2 = options2[Math.floor(Math.random() * options2.length)];
+    document.getElementById("randomMisto2").textContent = word2;
+  }
 }
 
-      //placeholder slova - emoce
-  const wordsEmoce = ["Radost", "Smutek", "Vztek", "Překvapení", "Strach", "Znechucení", "Zvědavost", "Nadšení", "Zklamání", "Spokojenost", "Úzkost", "Nuda", "Žárlivost", "Odhodlanost", "Ospalost", "Legrace", "Uraženost", "Stud", "Nesmělost", "Odpor", "Únava", "Bdělost", "Samolibost"];
+function lockedIn(id) {
+  lockedWords[id] = !lockedWords[id];
 
-function showWordEmoce(id) {
-  const randomIndex = Math.floor(Math.random() * wordsEmoce.length);
-  const randomWord = wordsEmoce[randomIndex];
-  const textDiv = document.getElementById(id);
-  textDiv.textContent = randomWord;
+  const element = document.getElementById(id);
+  if (lockedWords[id]) {
+    element.style.color = "gray";
+    element.style.background = "gainsboro";
+  } else {
+    element.style.color = "black";
+    element.style.background = "lightgray";
+  }
+}
+
+//placeholder slova - emoce
+function showWordEmoce() {
+  const options1 = ["Radost", "Smutek", "Vztek", "Překvapení", "Strach", "Znechucení", "Zvědavost", "Nadšení", "Zklamání", "Spokojenost", "Úzkost", "Nuda", "Žárlivost", "Odhodlanost", "Ospalost", "Legrace", "Uraženost", "Stud", "Nesmělost", "Odpor", "Únava", "Bdělost", "Samolibost"];
+  const options2 = ["Radost", "Smutek", "Vztek", "Překvapení", "Strach", "Znechucení", "Zvědavost", "Nadšení", "Zklamání", "Spokojenost", "Úzkost", "Nuda", "Žárlivost", "Odhodlanost", "Ospalost", "Legrace", "Uraženost", "Stud", "Nesmělost", "Odpor", "Únava", "Bdělost", "Samolibost"];
+  if (!lockedWords.randomEmoce1) {
+    const word1 = options1[Math.floor(Math.random() * options1.length)];
+    document.getElementById("randomEmoce1").textContent = word1;
+  }
+
+  if (!lockedWords.randomEmoce2) {
+    const word2 = options2[Math.floor(Math.random() * options2.length)];
+    document.getElementById("randomEmoce2").textContent = word2;
+  }
+}
+
+function lockedIn(id) {
+  lockedWords[id] = !lockedWords[id];
+
+  const element = document.getElementById(id);
+  if (lockedWords[id]) {
+    element.style.color = "gray";
+    element.style.background = "gainsboro";
+  } else {
+    element.style.color = "black";
+    element.style.background = "lightgray";
+  }
 }
 </script>
 
