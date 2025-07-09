@@ -9,4 +9,4 @@ Program na losování náhodných slov z předem vytvořeného listu.
 <ul>- odstranění už vylosovaných slov</ul>
 <ul>- funkci co ukazuje kolik z kolika slov je možné vylosovat</ul>
 <br>
-Poslední update: 12:54, 9.7. 2025
+Poslední update: 13:10, 9.7. 2025
