@@ -25,8 +25,10 @@ html, body {
   height: 100%;
 }
 
-.arrowLeft, .arrowRight {
-  font-size: 2rem;
+button.arrowLeft, button.arrowRight {
+  font-size: 10vw;
+  margin-left: 1vw;
+  margin-right: 1vw;
   background: none;
   border: none;
   cursor: pointer;
@@ -59,19 +61,19 @@ html, body {
   text-align: center;
 }
 
-.textStyle {
+div.textStyle {
   background-color: rgb(215, 219, 218);
   color: rgb(64, 66, 70);
-  border-radius: 5vw;
-  font-size: 5vw !important;
-  padding: 2vw !important;
-  margin-top: 5vw !important;
+  border-radius: 8vw;
+  font-size: 6vw !important;
+  padding: 4vw !important;
+  margin-top: 6vh !important;
   font-family: Arial, Helvetica, sans-serif;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
 .images {
-  width: 50vw !important;
+  width: 60vw !important;
 }
 
 }
@@ -217,7 +219,8 @@ function showWordPovolani() {
     document.getElementById("randomPovolani2").textContent = word2;
   }
 }
-
+    
+// losování slov funkce
 function showWordMisto() {
   const options1 = ["Ostrov", "Zámek", "Zábavní park", "Škola", "Ve vlaku", "Na lodi", "Na zastávce", "Restaurace", "Obchod", "Zahrada", "Les", "Pláž", "Farma", "Důl", "Peklo", "Nebe", "Moře", "Podzemí", "Vesmír", "ZOO", "Akvárium", "Park", "Hory", "Banka", "Kino"];
   const options2 = ["Ostrov", "Zámek", "Zábavní park", "Škola", "Ve vlaku", "Na lodi", "Na zastávce", "Restaurace", "Obchod", "Zahrada", "Les", "Pláž", "Farma", "Důl", "Peklo", "Nebe", "Moře", "Podzemí", "Vesmír", "ZOO", "Akvárium", "Park", "Hory", "Banka", "Kino"];
@@ -245,19 +248,20 @@ function lockedIn(id) {
     element.style.background = "lightgray";
   }
 }
-
-//placeholder slova - emoce
+    
+// losování slov funkce
 function showWordEmoce() {
   const options1 = ["Radost", "Smutek", "Vztek", "Překvapení", "Strach", "Znechucení", "Zvědavost", "Nadšení", "Zklamání", "Spokojenost", "Úzkost", "Nuda", "Žárlivost", "Odhodlanost", "Ospalost", "Legrace", "Uraženost", "Stud", "Nesmělost", "Odpor", "Únava", "Bdělost", "Samolibost"];
   const options2 = ["Radost", "Smutek", "Vztek", "Překvapení", "Strach", "Znechucení", "Zvědavost", "Nadšení", "Zklamání", "Spokojenost", "Úzkost", "Nuda", "Žárlivost", "Odhodlanost", "Ospalost", "Legrace", "Uraženost", "Stud", "Nesmělost", "Odpor", "Únava", "Bdělost", "Samolibost"];
-  if (!lockedWords.randomEmoce1) {
-    const word1 = options1[Math.floor(Math.random() * options1.length)];
-    document.getElementById("randomEmoce1").textContent = word1;
+   // funkce zamykání
+    if (!lockedWords.randomEmoce1) {
+      const word1 = options1[Math.floor(Math.random() * options1.length)];
+      document.getElementById("randomEmoce1").textContent = word1;
   }
 
-  if (!lockedWords.randomEmoce2) {
-    const word2 = options2[Math.floor(Math.random() * options2.length)];
-    document.getElementById("randomEmoce2").textContent = word2;
+    if (!lockedWords.randomEmoce2) {
+      const word2 = options2[Math.floor(Math.random() * options2.length)];
+      document.getElementById("randomEmoce2").textContent = word2;
   }
 }
 
