@@ -76,6 +76,11 @@ div.textStyle {
   width: 60vw !important;
 }
 
+.counterstyle {
+  font-size: 6vw !important;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
 }
 
 /*normální velikost obrazovky na PC*/
@@ -127,12 +132,17 @@ height: 100vh;
 }
 
 .images {
-  width:25vw;
+  width: 25vw;
   align-items: center;
   text-align: center;
 }
 
-  </style>
+.counterstyle {
+  font-size: 2.5vw;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+</style>
 </head>
 
 <body>
@@ -142,7 +152,7 @@ height: 100vh;
   <div class="container">
     <div class="slide povolani" id="itemstyle">
       <div class="items">
-        <p id="counterPovolani"></p>
+        <p id="counterPovolani" class="counterstyle"></p>
       <!-- placeholder obrázek (povolání) ↓ -->
          <img src="Images/Bag1.png" alt="povolani" class="images" onclick="showWordPovolani()">
         <div id="randomPovolani1" class="textStyle" onclick="lockedIn('randomPovolani1')">Možnost 1</div>
@@ -152,7 +162,7 @@ height: 100vh;
 
     <div class="slide misto" id="itemstyle">
       <div class="items">
-        <p id="counterMisto"></p>
+        <p id="counterMisto" class="counterstyle"></p>
       <!-- placeholder obrázek (místo) ↓ -->
         <img src="Images/Bag2.png" alt="misto" class="images" onclick="showWordMisto()">
         <div id="randomMisto1" class="textStyle" onclick="lockedIn('randomMisto1')">Možnost 1</div>
@@ -162,7 +172,7 @@ height: 100vh;
 
     <div class="slide emoce" id="itemstyle">
       <div class="items">
-        <p id="counterEmoce"></p>
+        <p id="counterEmoce" class="counterstyle"></p>
       <!-- placeholder obrázek (emoce) ↓ -->
          <img src="Images/Bag3.png" alt="emoce" class="images" onclick="showWordEmoce()">
         <div id="randomEmoce1" class="textStyle" onclick="lockedIn('randomEmoce1')">Možnost 1</div>
@@ -291,6 +301,10 @@ function lockedIn(id) {
   }
 }
 </script>
+
+
+</body>
+</html>
 
 
 </body>
