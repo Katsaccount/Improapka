@@ -174,7 +174,7 @@ height: 100vh;
       <div class="items">
         <p id="counterEmoce" class="counterstyle"></p>
       <!-- placeholder obrázek (emoce) ↓ -->
-         <img src="Images/Bag3.png" alt="emoce" class="images" onclick="showWordEmoce()">
+        <img src="Images/Bag3.png" alt="emoce" class="images" onclick="showWordEmoce()">
         <div id="randomEmoce1" class="textStyle" onclick="lockedIn('randomEmoce1')">Možnost 1</div>
         <div id="randomEmoce2" class="textStyle" onclick="lockedIn('randomEmoce2')">Možnost 2</div>
       </div>
@@ -186,6 +186,7 @@ height: 100vh;
 
 
 <script>
+
 // šipky - funkce slides
 const slides = document.querySelectorAll('.slide');
 let currentIndex = 1;
@@ -243,7 +244,7 @@ function showWordPovolani() {
   const options2Misto = [...options1Misto];
 
   const currentCountMisto = options1Misto.length;
-  const totalCountMisto = options2Misto.length;
+  const totalCountMisto = 90;
 
   document.getElementById("counterMisto").textContent = `${currentCountMisto}/${totalCountMisto}`;
 
@@ -268,7 +269,7 @@ function showWordMisto() {
   const options2Emoce = [...options1Emoce];
 
   const currentCountEmoce = options1Emoce.length;
-  const totalCountEmoce = options2Emoce.length;
+  const totalCountEmoce = 75;
 
   document.getElementById("counterEmoce").textContent = `${currentCountEmoce}/${totalCountEmoce}`;
 
@@ -289,23 +290,88 @@ function showWordEmoce() {
 }
 
 function lockedIn(id) {
-  lockedWords[id] = !lockedWords[id];
+  if (lockedWords[id]) return; // Prevent repeated locking
+
+  lockedWords[id] = true;
 
   const element = document.getElementById(id);
-  if (lockedWords[id]) {
-    element.style.color = "gray";
-    element.style.background = "gainsboro";
-  } else {
-    element.style.color = "black";
-    element.style.background = "lightgray";
+  const chosenWord = element.textContent.trim();
+  element.style.color = "gray";
+  element.style.background = "gainsboro";
+
+  // Remove sibling word
+  const suffix = id.endsWith("1") ? "2" : "1";
+  const otherId = id.slice(0, -1) + suffix;
+  const otherElement = document.getElementById(otherId);
+  if (otherElement) {
+    otherElement.remove();
+  }
+
+  // Remove chosenWord from options arrays
+  if (id.includes("Povolani")) {
+    removeWordFromList(options1Povolani, chosenWord);
+    removeWordFromList(options2Povolani, chosenWord);
+  } else if (id.includes("Misto")) {
+    removeWordFromList(options1Misto, chosenWord);
+    removeWordFromList(options2Misto, chosenWord);
+  } else if (id.includes("Emoce")) {
+    removeWordFromList(options1Emoce, chosenWord);
+    removeWordFromList(options2Emoce, chosenWord);
+  }
+
+  // Change image to locked
+  const slide = element.closest(".slide");
+  const img = slide.querySelector("img");
+  if (img) {
+    img.src = "Images/locked.png";
+  }
+
+
+  if (id.includes("Povolani")) {
+  removeWordFromList(options1Povolani, chosenWord);
+  removeWordFromList(options2Povolani, chosenWord);
+  refreshCounterPovolani();
+} else if (id.includes("Misto")) {
+  removeWordFromList(options1Misto, chosenWord);
+  removeWordFromList(options2Misto, chosenWord);
+  refreshCounterMisto();
+} else if (id.includes("Emoce")) {
+  removeWordFromList(options1Emoce, chosenWord);
+  removeWordFromList(options2Emoce, chosenWord);
+  refreshCounterEmoce();
+}
+
+}
+
+// Helper function to remove word
+function removeWordFromList(list, word) {
+  const index = list.indexOf(word);
+  if (index > -1) {
+    list.splice(index, 1);
   }
 }
+
+function refreshCounterPovolani() {
+  document.getElementById("counterPovolani").textContent =
+    `${options1Povolani.length}/${options2Povolani.length}`;
+}
+
+function refreshCounterMisto() {
+  document.getElementById("counterMisto").textContent =
+    `${options1Misto.length}/${options2Misto.length}`;
+}
+
+function refreshCounterEmoce() {
+  document.getElementById("counterEmoce").textContent =
+    `${options1Emoce.length}/${options2Emoce.length}`;
+}
+
+
 </script>
 
 
 </body>
 </html>
-
 
 </body>
 </html>
