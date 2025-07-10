@@ -142,6 +142,7 @@ height: 100vh;
   <div class="container">
     <div class="slide povolani" id="itemstyle">
       <div class="items">
+        <p id="counterPovolani"></p>
       <!-- placeholder obrázek (povolání) ↓ -->
          <img src="Images/Bag1.png" alt="povolani" class="images" onclick="showWordPovolani()">
         <div id="randomPovolani1" class="textStyle" onclick="lockedIn('randomPovolani1')">Možnost 1</div>
@@ -151,6 +152,7 @@ height: 100vh;
 
     <div class="slide misto" id="itemstyle">
       <div class="items">
+        <p id="counterMisto"></p>
       <!-- placeholder obrázek (místo) ↓ -->
         <img src="Images/Bag2.png" alt="misto" class="images" onclick="showWordMisto()">
         <div id="randomMisto1" class="textStyle" onclick="lockedIn('randomMisto1')">Možnost 1</div>
@@ -160,6 +162,7 @@ height: 100vh;
 
     <div class="slide emoce" id="itemstyle">
       <div class="items">
+        <p id="counterEmoce"></p>
       <!-- placeholder obrázek (emoce) ↓ -->
          <img src="Images/Bag3.png" alt="emoce" class="images" onclick="showWordEmoce()">
         <div id="randomEmoce1" class="textStyle" onclick="lockedIn('randomEmoce1')">Možnost 1</div>
@@ -197,70 +200,80 @@ updateSlides();
 
 
 // funkce zamykání - kontrola
-const lockedWords = {
-  randomMisto1: false,
-  randomMisto2: false,
-  randomPovolani1: false,
-  randomPovolani2: false
-};
+const lockedWords = {};
+
+// counter slov - povolání
+  const options1Povolani = ["průvodčí", "prodavač", "podnikatel", "cestovatel", "fotograf", "policista", "učitel", "úředník", "voják", "sportovec", "zedník", "programátor", "umělec", "mechanik", "instalatér", "zahradník", "ředitel", "popelář", "student", "rybář", "spisovatel", "trenér", "prezident", "právník", "reportér", "stylista", "horolezec", "zemědělec", "průvodce", "malíř pokojů", "taxikář", "dělník", "dřevorubec", "kurýr", "elektrikář", "doktor", "zdravotní sestra", "politik", "právník", "turista", "detektiv", "influencer", "kosmetička", "hudebník", "švec", "švadlena", "pilot", "námořník", "meteorolog", "barman", "barista", "číšník/servírka", "entomolog", "myslivec", "filozof", "parašutista", "tajný agent", "nájemný zabiják", "bylinkář", "kominík", "revizor", "bezdomovec", "realitní makléř", "vědec", "plavčík", "zločinec", "houbař", "vinař", "knihovník", "dj", "zákaznická podpora (helpdesk)", "terapeut", "kuchař", "věštkyně", "roztleskávačka", "ostraha", "režisér", "umývač oken", "uklízečka", "stěhovák", "převozník", "psycholog", "vrátný", "kouč", "cukrář", "pekař"];
+  const options2Povolani = [...options1Povolani];
+
+  const currentCountPovolani = options1Povolani.length;
+  const totalCountPovolani = options2Povolani.length;
+
+  document.getElementById("counterPovolani").textContent = `${currentCountPovolani}/${totalCountPovolani}`;
+
 
 // losování slov funkce
 function showWordPovolani() {
-  const options1 = ["Architekt", "Automechanik", "Kuchař", "Hasič", "Zedník", "Policista", "Zubař", "Doktor", "Číšník", "Učitel", "Veterinář", "Astronaut", "Pošťák", "Květinář", "Popelář", "Zpěvák", "Herec", "Uklízeč", "Sekretář", "Malíř", "Designér", "Cukrář", "Kadeřník", "Farmář", "Kominík"];
-  const options2 = ["Architekt", "Automechanik", "Kuchař", "Hasič", "Zedník", "Policista", "Zubař", "Doktor", "Číšník", "Učitel", "Veterinář", "Astronaut", "Pošťák", "Květinář", "Popelář", "Zpěvák", "Herec", "Uklízeč", "Sekretář", "Malíř", "Designér", "Cukrář", "Kadeřník", "Farmář", "Kominík"];
+
   // funkce zamykání
   if (!lockedWords.randomPovolani1) {
-    const word1 = options1[Math.floor(Math.random() * options1.length)];
+    const word1 = options1Povolani[Math.floor(Math.random() * options1Povolani.length)];
     document.getElementById("randomPovolani1").textContent = word1;
   }
 
   if (!lockedWords.randomPovolani2) {
-    const word2 = options2[Math.floor(Math.random() * options2.length)];
+    const word2 = options2Povolani[Math.floor(Math.random() * options2Povolani.length)];
     document.getElementById("randomPovolani2").textContent = word2;
   }
 }
-    
+
+
+// counter slov - místa
+  const options1Misto = ["zastávka", "park", "útes", "pláž", "kino", "vlak", "jídelna", "divadlo", "les", "koupaliště", "nádraží", "letiště", "kemp", "stan", "poušť", "loď", "kancelář", "obchod/obchodní dům", "tramvaj", "zoo", "trafika", "knihovna", "byt", "most", "letadlo", "restaurace", "ulice", "nemocnice", "pole", "tělocvična", "škola", "hory", "náves", "zámek", "vinárna", "zahrada", "muzeum", "galerie", "výtah", "čekárna", "kadeřnictví", "sauna", "tržiště", "diskotéka", "koncert", "bar", "kavárna", "vesmírná loď", "čajovna", "banka", "fronta", "pouť/lunapark", "teambuilding", "firemní večírek", "talentová soutěž", "cirkus", "mrazící box", "poslední zastávka vlaku", "u zubaře", "temné zákoutí mysli", "centrum antikonfliktního týmu", "školní jídelna", "vědecká stanice na Antarktidě", "ponorka", "očistec", "peklo", "nebe", "učňovské kadeřnictví", "pitevna", "pila", "slepičárna", "účtárna", "kuchyňka", "novorozenecké oddělení", "kuřárna", "benzínová pumpa", "šatna", "kemp", "kanoe", "karneval", "pod vodou", "zkumavka", "místo činu", "kravín", "studna", "pivní půllitr", "hranice", "zřícenina", "schůze SVJ", "přijímací pohovor"];
+  const options2Misto = [...options1Misto];
+
+  const currentCountMisto = options1Misto.length;
+  const totalCountMisto = options2Misto.length;
+
+  document.getElementById("counterMisto").textContent = `${currentCountMisto}/${totalCountMisto}`;
+
 // losování slov funkce
 function showWordMisto() {
-  const options1 = ["Ostrov", "Zámek", "Zábavní park", "Škola", "Ve vlaku", "Na lodi", "Na zastávce", "Restaurace", "Obchod", "Zahrada", "Les", "Pláž", "Farma", "Důl", "Peklo", "Nebe", "Moře", "Podzemí", "Vesmír", "ZOO", "Akvárium", "Park", "Hory", "Banka", "Kino"];
-  const options2 = ["Ostrov", "Zámek", "Zábavní park", "Škola", "Ve vlaku", "Na lodi", "Na zastávce", "Restaurace", "Obchod", "Zahrada", "Les", "Pláž", "Farma", "Důl", "Peklo", "Nebe", "Moře", "Podzemí", "Vesmír", "ZOO", "Akvárium", "Park", "Hory", "Banka", "Kino"];
+
   // funkce zamykání
   if (!lockedWords.randomMisto1) {
-    const word1 = options1[Math.floor(Math.random() * options1.length)];
+    const word1 = options1Misto[Math.floor(Math.random() * options1Misto.length)];
     document.getElementById("randomMisto1").textContent = word1;
   }
 
   if (!lockedWords.randomMisto2) {
-    const word2 = options2[Math.floor(Math.random() * options2.length)];
+    const word2 = options2Misto[Math.floor(Math.random() * options2Misto.length)];
     document.getElementById("randomMisto2").textContent = word2;
   }
 }
 
-function lockedIn(id) {
-  lockedWords[id] = !lockedWords[id];
 
-  const element = document.getElementById(id);
-  if (lockedWords[id]) {
-    element.style.color = "gray";
-    element.style.background = "gainsboro";
-  } else {
-    element.style.color = "black";
-    element.style.background = "lightgray";
-  }
-}
-    
+// counter slov - emoce
+  const options1Emoce = ["empatie", "důvěřivost", "naivita", "výbušnost/vznětlivost", "flegmatičnost", "zamilovanost", "energičnost", "hysterie", "trpělivost", "moudrost", "škodolibost", "otupělost", "radost", "smutek", "dramatičnost", "nápaditost/kreativita", "prospěchářství", "sebestřednost", "náladovost", "lenost", "zbabělost", "statečnost", "strach", "rozmazlenost", "úzkostlivost", "cílevědomost", "houževnatost", "poslušnost", "povýšenost", "ctižádost", "aktivní", "workoholik", "serióznost/vážnost", "bezohlednost", "vytrvalost", "bezcharakterní", "bojácný", "nedůvěřivý", "roztržitý", "líný", "lehkomyslnost", "pomstychtivost", "závist", "nepřátelství", "pesimismus", "puntičkářství", "neohroženost", "velkorysost", "vynalézavost", "rozvážnost", "stydlivost", "přecitlivělý", "asociální", "bezstarostnost", "činorodost", "depresivní", "vychloubačnost", "konzervativní", "lhostejnost", "koketnost", "lstivost", "vztahovačnost", "stydlivost/nesmělost", "nerozhodnost", "podezíravost", "přecitlivělý", "rozpustilost", "vášnivý/temperamentní", "zodpovědnost", "nezodpovědnost", "zapomětlivost", "záludnost", "impulsivní", "zbrklý", "hrdost"];
+  const options2Emoce = [...options1Emoce];
+
+  const currentCountEmoce = options1Emoce.length;
+  const totalCountEmoce = options2Emoce.length;
+
+  document.getElementById("counterEmoce").textContent = `${currentCountEmoce}/${totalCountEmoce}`;
+
+
 // losování slov funkce
 function showWordEmoce() {
-  const options1 = ["Radost", "Smutek", "Vztek", "Překvapení", "Strach", "Znechucení", "Zvědavost", "Nadšení", "Zklamání", "Spokojenost", "Úzkost", "Nuda", "Žárlivost", "Odhodlanost", "Ospalost", "Legrace", "Uraženost", "Stud", "Nesmělost", "Odpor", "Únava", "Bdělost", "Samolibost"];
-  const options2 = ["Radost", "Smutek", "Vztek", "Překvapení", "Strach", "Znechucení", "Zvědavost", "Nadšení", "Zklamání", "Spokojenost", "Úzkost", "Nuda", "Žárlivost", "Odhodlanost", "Ospalost", "Legrace", "Uraženost", "Stud", "Nesmělost", "Odpor", "Únava", "Bdělost", "Samolibost"];
+
    // funkce zamykání
     if (!lockedWords.randomEmoce1) {
-      const word1 = options1[Math.floor(Math.random() * options1.length)];
+      const word1 = options1Emoce[Math.floor(Math.random() * options1Emoce.length)];
       document.getElementById("randomEmoce1").textContent = word1;
   }
 
     if (!lockedWords.randomEmoce2) {
-      const word2 = options2[Math.floor(Math.random() * options2.length)];
+      const word2 = options2Emoce[Math.floor(Math.random() * options2Emoce.length)];
       document.getElementById("randomEmoce2").textContent = word2;
   }
 }
