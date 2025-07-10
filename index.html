@@ -152,7 +152,9 @@ height: 100vh;
   <div class="container">
     <div class="slide povolani" id="itemstyle">
       <div class="items">
-        <p id="counterPovolani" class="counterstyle"></p>
+        <p class="counterstyle">
+          <span id="counterPovolani"></span> / <span>86</span>
+        </p>
       <!-- placeholder obrázek (povolání) ↓ -->
          <img src="Images/Bag1.png" alt="povolani" class="images" onclick="showWordPovolani()">
         <div id="randomPovolani1" class="textStyle" onclick="lockedIn('randomPovolani1')">Možnost 1</div>
@@ -162,7 +164,9 @@ height: 100vh;
 
     <div class="slide misto" id="itemstyle">
       <div class="items">
-        <p id="counterMisto" class="counterstyle"></p>
+        <p class="counterstyle">
+          <span id="counterMisto"></span> / <span>90</span>
+        </p>
       <!-- placeholder obrázek (místo) ↓ -->
         <img src="Images/Bag2.png" alt="misto" class="images" onclick="showWordMisto()">
         <div id="randomMisto1" class="textStyle" onclick="lockedIn('randomMisto1')">Možnost 1</div>
@@ -172,8 +176,10 @@ height: 100vh;
 
     <div class="slide emoce" id="itemstyle">
       <div class="items">
-        <p id="counterEmoce" class="counterstyle"></p>
-      <!-- placeholder obrázek (emoce) ↓ -->
+        <p class="counterstyle">
+          <span id="counterEmoce"></span> / <span>75</span>
+        </p>
+        <!-- placeholder obrázek (emoce) ↓ -->
         <img src="Images/Bag3.png" alt="emoce" class="images" onclick="showWordEmoce()">
         <div id="randomEmoce1" class="textStyle" onclick="lockedIn('randomEmoce1')">Možnost 1</div>
         <div id="randomEmoce2" class="textStyle" onclick="lockedIn('randomEmoce2')">Možnost 2</div>
@@ -218,9 +224,11 @@ const lockedWords = {};
   const options2Povolani = [...options1Povolani];
 
   const currentCountPovolani = options1Povolani.length;
-  const totalCountPovolani = options2Povolani.length;
+  const totalCountPovolani = 90;
 
-  document.getElementById("counterPovolani").textContent = `${currentCountPovolani}/${totalCountPovolani}`;
+document.getElementById("counterPovolani").textContent =
+options1Povolani.length;
+
 
 
 // losování slov funkce
@@ -246,7 +254,9 @@ function showWordPovolani() {
   const currentCountMisto = options1Misto.length;
   const totalCountMisto = 90;
 
-  document.getElementById("counterMisto").textContent = `${currentCountMisto}/${totalCountMisto}`;
+document.getElementById("counterMisto").textContent =
+options1Misto.length;
+
 
 // losování slov funkce
 function showWordMisto() {
@@ -271,7 +281,9 @@ function showWordMisto() {
   const currentCountEmoce = options1Emoce.length;
   const totalCountEmoce = 75;
 
-  document.getElementById("counterEmoce").textContent = `${currentCountEmoce}/${totalCountEmoce}`;
+document.getElementById("counterEmoce").textContent =
+options1Emoce.length;
+
 
 
 // losování slov funkce
@@ -290,7 +302,7 @@ function showWordEmoce() {
 }
 
 function lockedIn(id) {
-  if (lockedWords[id]) return; // Prevent repeated locking
+  if (lockedWords[id]) return;
 
   lockedWords[id] = true;
 
@@ -299,7 +311,7 @@ function lockedIn(id) {
   element.style.color = "gray";
   element.style.background = "gainsboro";
 
-  // Remove sibling word
+
   const suffix = id.endsWith("1") ? "2" : "1";
   const otherId = id.slice(0, -1) + suffix;
   const otherElement = document.getElementById(otherId);
@@ -307,7 +319,7 @@ function lockedIn(id) {
     otherElement.remove();
   }
 
-  // Remove chosenWord from options arrays
+
   if (id.includes("Povolani")) {
     removeWordFromList(options1Povolani, chosenWord);
     removeWordFromList(options2Povolani, chosenWord);
@@ -319,7 +331,7 @@ function lockedIn(id) {
     removeWordFromList(options2Emoce, chosenWord);
   }
 
-  // Change image to locked
+
   const slide = element.closest(".slide");
   const img = slide.querySelector("img");
   if (img) {
@@ -343,7 +355,7 @@ function lockedIn(id) {
 
 }
 
-// Helper function to remove word
+
 function removeWordFromList(list, word) {
   const index = list.indexOf(word);
   if (index > -1) {
@@ -353,17 +365,17 @@ function removeWordFromList(list, word) {
 
 function refreshCounterPovolani() {
   document.getElementById("counterPovolani").textContent =
-    `${options1Povolani.length}/${options2Povolani.length}`;
+    options1Povolani.length;
 }
 
 function refreshCounterMisto() {
   document.getElementById("counterMisto").textContent =
-    `${options1Misto.length}/${options2Misto.length}`;
+    options1Misto.length;
 }
 
 function refreshCounterEmoce() {
   document.getElementById("counterEmoce").textContent =
-    `${options1Emoce.length}/${options2Emoce.length}`;
+    options1Emoce.length;
 }
 
 
