@@ -148,7 +148,18 @@ height: 100vh;
 <body>
   <div class="carousel-container">
     <button class="arrowLeft" onclick="showPrevious()">←</button>
-
+    <div class="slide emoce" id="itemstyle">
+      <div class="items">
+      <!-- placeholder obrázek (emoce) ↓ -->
+        <img src="Images/Bag3.png" alt="emoce" class="images" onclick="handleBagClick(this); showWordEmoce()">
+          <p class="counterstyle">
+            <span id="counterEmoce"></span> / <span>75</span>
+          </p>
+        <div id="randomEmoce1" class="textStyle" onclick="lockedIn('randomEmoce1')">Možnost 1</div>
+        <div id="randomEmoce2" class="textStyle" onclick="lockedIn('randomEmoce2')">Možnost 2</div>
+      </div>
+    </div>
+      
   <div class="container">
     <div class="slide povolani" id="itemstyle">
       <div class="items">
@@ -174,17 +185,6 @@ height: 100vh;
       </div>
     </div>
 
-    <div class="slide emoce" id="itemstyle">
-      <div class="items">
-      <!-- placeholder obrázek (emoce) ↓ -->
-        <img src="Images/Bag3.png" alt="emoce" class="images" onclick="handleBagClick(this); showWordEmoce()">
-          <p class="counterstyle">
-            <span id="counterEmoce"></span> / <span>75</span>
-          </p>
-        <div id="randomEmoce1" class="textStyle" onclick="lockedIn('randomEmoce1')">Možnost 1</div>
-        <div id="randomEmoce2" class="textStyle" onclick="lockedIn('randomEmoce2')">Možnost 2</div>
-      </div>
-    </div>
   </div>
 
   <button class="arrowRight" onclick="showNext()">→</button>
