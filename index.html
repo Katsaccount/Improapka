@@ -25,10 +25,21 @@ html, body {
   height: 100%;
 }
 
-button.arrowLeft, button.arrowRight {
+button.arrowLeft {
   font-size: 10vw;
-  margin-left: 1vw;
-  margin-right: 1vw;
+  margin-left: 2vw;
+  margin-right: -7vw;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 10;
+  display: inline-block !important;
+}
+
+button.arrowRight {
+  font-size: 10vw;
+  margin-left: -7vw;
+  margin-right: 2vw;
   background: none;
   border: none;
   cursor: pointer;
@@ -531,10 +542,6 @@ function resetSlide(category) {
 }
 
 </script>
-
-
-</body>
-</html>
 
 
 </body>
