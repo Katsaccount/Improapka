@@ -37,12 +37,15 @@ button.arrowLeft, button.arrowRight {
 }
 
 .container {
-  width: 80%;
-  height: 100%;
-  overflow: hidden;
   display: flex;
+  flex-direction: row;
   justify-content: center;
-  position: relative;
+  align-items: center;
+  max-width: 1200px !important;
+  padding: 40px 20px;
+  margin: 50px auto;
+  box-sizing: border-box;
+  min-height: calc(100vh - 80px);
 }
 
 .slide {
@@ -67,7 +70,7 @@ div.textStyle {
   border-radius: 8vw;
   font-size: 6vw !important;
   padding: 4vw !important;
-  margin-top: 6vh !important;
+  margin-top: 4vh !important;
   font-family: Arial, Helvetica, sans-serif;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
@@ -81,30 +84,46 @@ div.textStyle {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+button.resetbutton {
+  background-color: rgb(60, 60, 60);
+  color: rgb(255, 255, 255);
+  border-radius: 8vw;
+  font-size: 6vw !important;
+  padding: 2vw !important;
+  margin: 1.5vh !important;
+  font-family: Arial, Helvetica, sans-serif;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
 }
 
 /*normální velikost obrazovky na PC*/
 html, body {
   height: 100%;
   margin: 0;
-  padding: 0;
 }
 
 .container {
-display: flex;
-justify-content: center;
-align-items: center;
-height: 100vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  max-width: 1200px !important;
+  padding: 40px 20px;
+  margin: 50px auto;
+  box-sizing: border-box;
+  min-height: calc(100vh - 80px);
 }
 
 
 .items {
   text-align: center;
+  align-items: center;
   width: 100%;
 }
 
 #itemstyle {
   width: 100%;
+  align-items: center;
 }
 
 .textStyle {
@@ -142,6 +161,25 @@ height: 100vh;
   font-family: Arial, Helvetica, sans-serif;
 }
 
+.resetbutton {
+  background-color: rgb(60, 60, 60);
+  color: rgb(255, 255, 255);
+  border-radius: 5vw;
+  font-size: 2.5vw;
+  padding: 1vw;
+  margin: 1vw !important;
+  font-family: Arial, Helvetica, sans-serif;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  width: 50%;
+  border: none;
+  margin: auto;
+}
+
+.resetitem {
+  align-items: center;
+  text-align: center;
+}
+
 </style>
 </head>
 
@@ -157,10 +195,13 @@ height: 100vh;
           <p class="counterstyle">
             <span id="counterEmoce"></span> / <span>75</span>
           </p>
+          <div class="resetitem">
+            <button onclick="resetSlide('emoce')" class="resetbutton">↺</button>
+          </div>
         <div id="randomEmoce1" class="textStyle" onclick="lockedIn('randomEmoce1')">Možnost 1</div>
         <div id="randomEmoce2" class="textStyle" onclick="lockedIn('randomEmoce2')">Možnost 2</div>
       </div>
-    </div>
+      </div>
       
     <div class="slide povolani" id="itemstyle">
       <div class="items">
@@ -169,10 +210,13 @@ height: 100vh;
           <p class="counterstyle">
             <span id="counterPovolani"></span> / <span>86</span>
           </p>
+          <div class="resetitem">
+            <button onclick="resetSlide('povolani')" class="resetbutton">↺</button>
+          </div>
         <div id="randomPovolani1" class="textStyle" onclick="lockedIn('randomPovolani1')">Možnost 1</div>
         <div id="randomPovolani2" class="textStyle" onclick="lockedIn('randomPovolani2')">Možnost 2</div>
+        </div>
       </div>
-    </div>
 
     <div class="slide misto" id="itemstyle">
       <div class="items">
@@ -181,10 +225,13 @@ height: 100vh;
           <p class="counterstyle">
             <span id="counterMisto"></span> / <span>90</span>
           </p>
+          <div class="resetitem">
+            <button onclick="resetSlide('misto')" class="resetbutton">↺</button>
+          </div>
         <div id="randomMisto1" class="textStyle" onclick="lockedIn('randomMisto1')">Možnost 1</div>
         <div id="randomMisto2" class="textStyle" onclick="lockedIn('randomMisto2')">Možnost 2</div>
+        </div>
       </div>
-    </div>
 
   </div>
 
@@ -225,7 +272,7 @@ const lockedWords = {};
   const options2Povolani = [...options1Povolani];
 
   const currentCountPovolani = options1Povolani.length;
-  const totalCountPovolani = 90;
+  const totalCountPovolani = 86;
 
 document.getElementById("counterPovolani").textContent =
 options1Povolani.length;
@@ -280,7 +327,7 @@ function showWordMisto() {
   const options2Emoce = [...options1Emoce];
 
   const currentCountEmoce = options1Emoce.length;
-  const totalCountEmoce = 75;
+  const totalCountEmoce = 74;
 
 document.getElementById("counterEmoce").textContent =
 options1Emoce.length;
@@ -301,6 +348,8 @@ function showWordEmoce() {
       document.getElementById("randomEmoce2").textContent = word2;
   }
 }
+ 
+
 
 function lockedIn(id) {
   if (lockedWords[id]) return;
@@ -355,7 +404,6 @@ function lockedIn(id) {
 }
 
 }
-
 
 function removeWordFromList(list, word) {
   const index = list.indexOf(word);
@@ -413,7 +461,80 @@ function handleBagClick(imgElement) {
     imgElement.src = "Images/Bag3.png";
   }
 }
+
+
+// reset funkce
+const slideConfig = {
+  emoce: {
+    original: ["empatie", "důvěřivost", "naivita", "výbušnost/vznětlivost", "flegmatičnost", "zamilovanost", "energičnost", "hysterie", "trpělivost", "moudrost", "škodolibost", "otupělost", "radost", "smutek", "dramatičnost", "nápaditost/kreativita", "prospěchářství", "sebestřednost", "náladovost", "lenost", "zbabělost", "statečnost", "strach", "rozmazlenost", "úzkostlivost", "cílevědomost", "houževnatost", "poslušnost", "povýšenost", "ctižádost", "aktivní", "workoholik", "serióznost/vážnost", "bezohlednost", "vytrvalost", "bezcharakterní", "bojácný", "nedůvěřivý", "roztržitý", "líný", "lehkomyslnost", "pomstychtivost", "závist", "nepřátelství", "pesimismus", "puntičkářství", "neohroženost", "velkorysost", "vynalézavost", "rozvážnost", "stydlivost", "přecitlivělý", "asociální", "bezstarostnost", "činorodost", "depresivní", "vychloubačnost", "konzervativní", "lhostejnost", "koketnost", "lstivost", "vztahovačnost", "stydlivost/nesmělost", "nerozhodnost", "podezíravost", "přecitlivělý", "rozpustilost", "vášnivý/temperamentní", "zodpovědnost", "nezodpovědnost", "zapomětlivost", "záludnost", "impulsivní", "zbrklý", "hrdost"],
+    options1: options1Emoce,
+    options2: options2Emoce,
+    word1Id: "randomEmoce1",
+    word2Id: "randomEmoce2",
+    counterId: "counterEmoce",
+    defaultImage: "Images/Bag3.png"
+  },
+  povolani: {
+    original: ["průvodčí", "prodavač", "podnikatel", "cestovatel", "fotograf", "policista", "učitel", "úředník", "voják", "sportovec", "zedník", "programátor", "umělec", "mechanik", "instalatér", "zahradník", "ředitel", "popelář", "student", "rybář", "spisovatel", "trenér", "prezident", "právník", "reportér", "stylista", "horolezec", "zemědělec", "průvodce", "malíř pokojů", "taxikář", "dělník", "dřevorubec", "kurýr", "elektrikář", "doktor", "zdravotní sestra", "politik", "právník", "turista", "detektiv", "influencer", "kosmetička", "hudebník", "švec", "švadlena", "pilot", "námořník", "meteorolog", "barman", "barista", "číšník/servírka", "entomolog", "myslivec", "filozof", "parašutista", "tajný agent", "nájemný zabiják", "bylinkář", "kominík", "revizor", "bezdomovec", "realitní makléř", "vědec", "plavčík", "zločinec", "houbař", "vinař", "knihovník", "dj", "zákaznická podpora (helpdesk)", "terapeut", "kuchař", "věštkyně", "roztleskávačka", "ostraha", "režisér", "umývač oken", "uklízečka", "stěhovák", "převozník", "psycholog", "vrátný", "kouč", "cukrář", "pekař"],
+    options1: options1Povolani,
+    options2: options2Povolani,
+    word1Id: "randomPovolani1",
+    word2Id: "randomPovolani2",
+    counterId: "counterPovolani",
+    defaultImage: "Images/Bag1.png"
+  },
+  misto: {
+    original: ["zastávka", "park", "útes", "pláž", "kino", "vlak", "jídelna", "divadlo", "les", "koupaliště", "nádraží", "letiště", "kemp", "stan", "poušť", "loď", "kancelář", "obchod/obchodní dům", "tramvaj", "zoo", "trafika", "knihovna", "byt", "most", "letadlo", "restaurace", "ulice", "nemocnice", "pole", "tělocvična", "škola", "hory", "náves", "zámek", "vinárna", "zahrada", "muzeum", "galerie", "výtah", "čekárna", "kadeřnictví", "sauna", "tržiště", "diskotéka", "koncert", "bar", "kavárna", "vesmírná loď", "čajovna", "banka", "fronta", "pouť/lunapark", "teambuilding", "firemní večírek", "talentová soutěž", "cirkus", "mrazící box", "poslední zastávka vlaku", "u zubaře", "temné zákoutí mysli", "centrum antikonfliktního týmu", "školní jídelna", "vědecká stanice na Antarktidě", "ponorka", "očistec", "peklo", "nebe", "učňovské kadeřnictví", "pitevna", "pila", "slepičárna", "účtárna", "kuchyňka", "novorozenecké oddělení", "kuřárna", "benzínová pumpa", "šatna", "kemp", "kanoe", "karneval", "pod vodou", "zkumavka", "místo činu", "kravín", "studna", "pivní půllitr", "hranice", "zřícenina", "schůze SVJ", "přijímací pohovor"],
+    options1: options1Misto,
+    options2: options2Misto,
+    word1Id: "randomMisto1",
+    word2Id: "randomMisto2",
+    counterId: "counterMisto",
+    defaultImage: "Images/Bag2.png"
+  }
+};
+
+function resetSlide(category) {
+  const config = slideConfig[category];
+  if (!config) return;
+
+  const { original, options1, options2, word1Id, word2Id, counterId, defaultImage } = config;
+
+  options1.length = 0;
+  options2.length = 0;
+  options1.push(...original);
+  options2.push(...original);
+
+  [word1Id, word2Id].forEach(id => {
+    lockedWords[id] = false;
+    let el = document.getElementById(id);
+
+    if (!el) {
+      el = document.createElement("div");
+      el.id = id;
+      el.className = "textStyle";
+      el.textContent = id.endsWith("1") ? "Možnost 1" : "Možnost 2";
+      el.onclick = () => lockedIn(id);
+      document.getElementById(word1Id).parentElement.appendChild(el);
+    } else {
+      el.style.color = "";
+      el.style.background = "";
+      el.textContent = id.endsWith("1") ? "Možnost 1" : "Možnost 2";
+    }
+  });
+
+  const slide = document.getElementById(word1Id).closest(".slide");
+  const img = slide.querySelector("img");
+  if (img) img.src = defaultImage;
+
+  document.getElementById(counterId).textContent = original.length;
+}
+
 </script>
+
+
+</body>
+</html>
 
 
 </body>
