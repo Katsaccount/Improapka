@@ -279,7 +279,7 @@ updateSlides();
 const lockedWords = {};
 
 // counter slov - povolání
-  const options1Povolani = ["průvodčí", "prodavač", "podnikatel", "cestovatel", "fotograf", "policista", "učitel", "úředník", "voják", "sportovec", "zedník", "programátor", "umělec", "mechanik", "instalatér", "zahradník", "ředitel", "popelář", "student", "rybář", "spisovatel", "trenér", "prezident", "právník", "reportér", "stylista", "horolezec", "zemědělec", "průvodce", "malíř pokojů", "taxikář", "dělník", "dřevorubec", "kurýr", "elektrikář", "doktor", "zdravotní sestra", "politik", "právník", "turista", "detektiv", "influencer", "kosmetička", "hudebník", "švec", "švadlena", "pilot", "námořník", "meteorolog", "barman", "barista", "číšník/servírka", "entomolog", "myslivec", "filozof", "parašutista", "tajný agent", "nájemný zabiják", "bylinkář", "kominík", "revizor", "bezdomovec", "realitní makléř", "vědec", "plavčík", "zločinec", "houbař", "vinař", "knihovník", "dj", "zákaznická podpora (helpdesk)", "terapeut", "kuchař", "věštkyně", "roztleskávačka", "ostraha", "režisér", "umývač oken", "uklízečka", "stěhovák", "převozník", "psycholog", "vrátný", "kouč", "cukrář", "pekař"];
+  var options1Povolani = ["průvodčí", "prodavač", "podnikatel", "cestovatel", "fotograf", "policista", "učitel", "úředník", "voják", "sportovec", "zedník", "programátor", "umělec", "mechanik", "instalatér", "zahradník", "ředitel", "popelář", "student", "rybář", "spisovatel", "trenér", "prezident", "právník", "reportér", "stylista", "horolezec", "zemědělec", "průvodce", "malíř pokojů", "taxikář", "dělník", "dřevorubec", "kurýr", "elektrikář", "doktor", "zdravotní sestra", "politik", "právník", "turista", "detektiv", "influencer", "kosmetička", "hudebník", "švec", "švadlena", "pilot", "námořník", "meteorolog", "barman", "barista", "číšník/servírka", "entomolog", "myslivec", "filozof", "parašutista", "tajný agent", "nájemný zabiják", "bylinkář", "kominík", "revizor", "bezdomovec", "realitní makléř", "vědec", "plavčík", "zločinec", "houbař", "vinař", "knihovník", "dj", "zákaznická podpora (helpdesk)", "terapeut", "kuchař", "věštkyně", "roztleskávačka", "ostraha", "režisér", "umývač oken", "uklízečka", "stěhovák", "převozník", "psycholog", "vrátný", "kouč", "cukrář", "pekař"];
   const options2Povolani = [...options1Povolani];
 
   const currentCountPovolani = options1Povolani.length;
@@ -307,7 +307,7 @@ function showWordPovolani() {
 
 
 // counter slov - místa
-  const options1Misto = ["zastávka", "park", "útes", "pláž", "kino", "vlak", "jídelna", "divadlo", "les", "koupaliště", "nádraží", "letiště", "kemp", "stan", "poušť", "loď", "kancelář", "obchod/obchodní dům", "tramvaj", "zoo", "trafika", "knihovna", "byt", "most", "letadlo", "restaurace", "ulice", "nemocnice", "pole", "tělocvična", "škola", "hory", "náves", "zámek", "vinárna", "zahrada", "muzeum", "galerie", "výtah", "čekárna", "kadeřnictví", "sauna", "tržiště", "diskotéka", "koncert", "bar", "kavárna", "vesmírná loď", "čajovna", "banka", "fronta", "pouť/lunapark", "teambuilding", "firemní večírek", "talentová soutěž", "cirkus", "mrazící box", "poslední zastávka vlaku", "u zubaře", "temné zákoutí mysli", "centrum antikonfliktního týmu", "školní jídelna", "vědecká stanice na Antarktidě", "ponorka", "očistec", "peklo", "nebe", "učňovské kadeřnictví", "pitevna", "pila", "slepičárna", "účtárna", "kuchyňka", "novorozenecké oddělení", "kuřárna", "benzínová pumpa", "šatna", "kemp", "kanoe", "karneval", "pod vodou", "zkumavka", "místo činu", "kravín", "studna", "pivní půllitr", "hranice", "zřícenina", "schůze SVJ", "přijímací pohovor"];
+  var options1Misto = ["zastávka", "park", "útes", "pláž", "kino", "vlak", "jídelna", "divadlo", "les", "koupaliště", "nádraží", "letiště", "kemp", "stan", "poušť", "loď", "kancelář", "obchod/obchodní dům", "tramvaj", "zoo", "trafika", "knihovna", "byt", "most", "letadlo", "restaurace", "ulice", "nemocnice", "pole", "tělocvična", "škola", "hory", "náves", "zámek", "vinárna", "zahrada", "muzeum", "galerie", "výtah", "čekárna", "kadeřnictví", "sauna", "tržiště", "diskotéka", "koncert", "bar", "kavárna", "vesmírná loď", "čajovna", "banka", "fronta", "pouť/lunapark", "teambuilding", "firemní večírek", "talentová soutěž", "cirkus", "mrazící box", "poslední zastávka vlaku", "u zubaře", "temné zákoutí mysli", "centrum antikonfliktního týmu", "školní jídelna", "vědecká stanice na Antarktidě", "ponorka", "očistec", "peklo", "nebe", "učňovské kadeřnictví", "pitevna", "pila", "slepičárna", "účtárna", "kuchyňka", "novorozenecké oddělení", "kuřárna", "benzínová pumpa", "šatna", "kemp", "kanoe", "karneval", "pod vodou", "zkumavka", "místo činu", "kravín", "studna", "pivní půllitr", "hranice", "zřícenina", "schůze SVJ", "přijímací pohovor"];
   const options2Misto = [...options1Misto];
 
   const currentCountMisto = options1Misto.length;
@@ -334,7 +334,7 @@ function showWordMisto() {
 
 
 // counter slov - emoce
-  const options1Emoce = ["empatie", "důvěřivost", "naivita", "výbušnost/vznětlivost", "flegmatičnost", "zamilovanost", "energičnost", "hysterie", "trpělivost", "moudrost", "škodolibost", "otupělost", "radost", "smutek", "dramatičnost", "nápaditost/kreativita", "prospěchářství", "sebestřednost", "náladovost", "lenost", "zbabělost", "statečnost", "strach", "rozmazlenost", "úzkostlivost", "cílevědomost", "houževnatost", "poslušnost", "povýšenost", "ctižádost", "aktivní", "workoholik", "serióznost/vážnost", "bezohlednost", "vytrvalost", "bezcharakterní", "bojácný", "nedůvěřivý", "roztržitý", "líný", "lehkomyslnost", "pomstychtivost", "závist", "nepřátelství", "pesimismus", "puntičkářství", "neohroženost", "velkorysost", "vynalézavost", "rozvážnost", "stydlivost", "přecitlivělý", "asociální", "bezstarostnost", "činorodost", "depresivní", "vychloubačnost", "konzervativní", "lhostejnost", "koketnost", "lstivost", "vztahovačnost", "stydlivost/nesmělost", "nerozhodnost", "podezíravost", "přecitlivělý", "rozpustilost", "vášnivý/temperamentní", "zodpovědnost", "nezodpovědnost", "zapomětlivost", "záludnost", "impulsivní", "zbrklý", "hrdost"];
+  var options1Emoce = ["empatie", "důvěřivost", "naivita", "výbušnost/vznětlivost", "flegmatičnost", "zamilovanost", "energičnost", "hysterie", "trpělivost", "moudrost", "škodolibost", "otupělost", "radost", "smutek", "dramatičnost", "nápaditost/kreativita", "prospěchářství", "sebestřednost", "náladovost", "lenost", "zbabělost", "statečnost", "strach", "rozmazlenost", "úzkostlivost", "cílevědomost", "houževnatost", "poslušnost", "povýšenost", "ctižádost", "aktivní", "workoholik", "serióznost/vážnost", "bezohlednost", "vytrvalost", "bezcharakterní", "bojácný", "nedůvěřivý", "roztržitý", "líný", "lehkomyslnost", "pomstychtivost", "závist", "nepřátelství", "pesimismus", "puntičkářství", "neohroženost", "velkorysost", "vynalézavost", "rozvážnost", "stydlivost", "přecitlivělý", "asociální", "bezstarostnost", "činorodost", "depresivní", "vychloubačnost", "konzervativní", "lhostejnost", "koketnost", "lstivost", "vztahovačnost", "stydlivost/nesmělost", "nerozhodnost", "podezíravost", "přecitlivělý", "rozpustilost", "vášnivý/temperamentní", "zodpovědnost", "nezodpovědnost", "zapomětlivost", "záludnost", "impulsivní", "zbrklý", "hrdost"];
   const options2Emoce = [...options1Emoce];
 
   const currentCountEmoce = options1Emoce.length;
@@ -381,18 +381,6 @@ function lockedIn(id) {
   }
 
 
-  if (id.includes("Povolani")) {
-    removeWordFromList(options1Povolani, chosenWord);
-    removeWordFromList(options2Povolani, chosenWord);
-  } else if (id.includes("Misto")) {
-    removeWordFromList(options1Misto, chosenWord);
-    removeWordFromList(options2Misto, chosenWord);
-  } else if (id.includes("Emoce")) {
-    removeWordFromList(options1Emoce, chosenWord);
-    removeWordFromList(options2Emoce, chosenWord);
-  }
-
-
   const slide = element.closest(".slide");
   const img = slide.querySelector("img");
   if (img) {
@@ -401,25 +389,30 @@ function lockedIn(id) {
 
 
   if (id.includes("Povolani")) {
-  removeWordFromList(options1Povolani, chosenWord);
-  removeWordFromList(options2Povolani, chosenWord);
-  refreshCounterPovolani();
-} else if (id.includes("Misto")) {
-  removeWordFromList(options1Misto, chosenWord);
-  removeWordFromList(options2Misto, chosenWord);
-  refreshCounterMisto();
-} else if (id.includes("Emoce")) {
-  removeWordFromList(options1Emoce, chosenWord);
-  removeWordFromList(options2Emoce, chosenWord);
-  refreshCounterEmoce();
-}
+    removeWordFromList(options1Povolani, chosenWord);
+    removeWordFromList(options2Povolani, chosenWord);
+    refreshCounterPovolani();
+    saveList('povolani', options1Povolani);
+  } else if (id.includes("Misto")) {
+    removeWordFromList(options1Misto, chosenWord);
+    removeWordFromList(options2Misto, chosenWord);
+    refreshCounterMisto();
+    saveList('misto', options1Misto);
+  } else if (id.includes("Emoce")) {
+    removeWordFromList(options1Emoce, chosenWord);
+    removeWordFromList(options2Emoce, chosenWord);
+    refreshCounterEmoce();
+    saveList('emoce', options1Emoce);
+  }
 
 }
 
 function removeWordFromList(list, word) {
-  const index = list.indexOf(word);
-  if (index > -1) {
-    list.splice(index, 1);
+  if (list) {
+    const index = list.indexOf(word);
+    if (index > -1) {
+      list.splice(index, 1);
+    }
   }
 }
 
@@ -427,6 +420,7 @@ function refreshCounterPovolani() {
   document.getElementById("counterPovolani").textContent =
     options1Povolani.length;
 }
+
 
 function refreshCounterMisto() {
   document.getElementById("counterMisto").textContent =
@@ -539,10 +533,55 @@ function resetSlide(category) {
   if (img) img.src = defaultImage;
 
   document.getElementById(counterId).textContent = original.length;
+  if (category=='misto') {
+    localStorage.setItem(category, slideConfig.misto.original);
+  } else if (category=='povolani') {
+    localStorage.setItem(category, slideConfig.povolani.original);
+  } else  if (category=='emoce') {
+    localStorage.setItem(category, slideConfig.emoce.original);
+  }
 }
+
+window.onload = function() {
+  console.log("Loading data");
+  if (localStorage.getItem('emoce')) {
+    options1Emoce = readList('emoce');
+    refreshCounterEmoce();
+  }
+  if (localStorage.getItem('misto')) {
+    options1Misto = readList('misto');
+    refreshCounterMisto();
+  }
+  if (localStorage.getItem('povolani')) {
+    options1Povolani = readList('povolani');
+    refreshCounterPovolani();
+  }
+  console.log("Page is fully loaded!");
+};
+
+function saveList(storageKey, stringArray) {
+  if (!Array.isArray(stringArray)) {
+    console.error("Provided data is not an array of strings.");
+    return;
+  }
+
+  try {
+    var val = JSON.stringify(stringArray);
+    localStorage.setItem(storageKey, val);
+    console.log(`Saved list under key ${storageKey}:${val}`);
+  } catch (error) {
+    console.error("Failed to save list to localStorage:", error);
+  }
+}
+
+function readList(storageKey) {
+  return JSON.parse(localStorage.getItem(storageKey));
+}
+
 
 </script>
 
 
 </body>
 </html>
+
