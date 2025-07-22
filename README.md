@@ -6,11 +6,10 @@ Program na losování náhodných slov z předem vytvořeného listu.
 <ul>- vybrání ("zamknutí") slova</ul>
 <ul>- odstranění už vylosovaných slov</ul>
 <ul>- funkci co ukazuje kolik z kolika slov je možné vylosovat</ul>
+<ul>- funkce na reset slov</ul>
 <br>
 <li>Funkce které budu ještě přidávat:</li>
-<ul>- funkce na reset slov</ul>
 <ul>- funkce na automatický reset když zbývají pouze 2 slova</ul>
 <ul>- stylizace</ul>
-<ul>- funkce co zabraňuje opakování slov</ul>
 <br>
-Poslední update: 17:36, 10.7. 2025
+Poslední update: 19:49, 22.7. 2025
