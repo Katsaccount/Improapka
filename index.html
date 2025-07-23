@@ -388,22 +388,39 @@ function lockedIn(id) {
   }
 
 
-  if (id.includes("Povolani")) {
-    removeWordFromList(options1Povolani, chosenWord);
-    removeWordFromList(options2Povolani, chosenWord);
+if (id.includes("Povolani")) {
+  removeWordFromList(options1Povolani, chosenWord);
+  removeWordFromList(options2Povolani, chosenWord);
+  refreshCounterPovolani();
+  saveList('povolani', options1Povolani);
+
+  if (options1Povolani.length <= 1) {
+    resetSlide('povolani');
     refreshCounterPovolani();
-    saveList('povolani', options1Povolani);
-  } else if (id.includes("Misto")) {
-    removeWordFromList(options1Misto, chosenWord);
-    removeWordFromList(options2Misto, chosenWord);
-    refreshCounterMisto();
-    saveList('misto', options1Misto);
-  } else if (id.includes("Emoce")) {
-    removeWordFromList(options1Emoce, chosenWord);
-    removeWordFromList(options2Emoce, chosenWord);
-    refreshCounterEmoce();
-    saveList('emoce', options1Emoce);
   }
+
+} else if (id.includes("Misto")) {
+  removeWordFromList(options1Misto, chosenWord);
+  removeWordFromList(options2Misto, chosenWord);
+  refreshCounterMisto();
+  saveList('misto', options1Misto);
+
+  if (options1Misto.length <= 1) {
+    resetSlide('misto');
+    refreshCounterMisto();
+  }
+} else if (id.includes("Emoce")) {
+  removeWordFromList(options1Emoce, chosenWord);
+  removeWordFromList(options2Emoce, chosenWord);
+  refreshCounterEmoce();
+  saveList('emoce', options1Emoce);
+
+  if (options1Emoce.length <= 1) {
+    resetSlide('emoce');
+    refreshCounterEmoce();
+  }
+}
+
 
 }
 
@@ -584,4 +601,3 @@ function readList(storageKey) {
 
 </body>
 </html>
-
