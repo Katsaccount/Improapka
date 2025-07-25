@@ -7,9 +7,9 @@ Program na losování náhodných slov z předem vytvořeného listu.
 <ul>- odstranění už vylosovaných slov</ul>
 <ul>- funkci co ukazuje kolik z kolika slov je možné vylosovat</ul>
 <ul>- funkce na reset slov</ul>
+<ul>- funkce na automatický reset když jsou všechna slova vyčerpána</ul>
 <br>
 <li>Funkce které budu ještě přidávat:</li>
-<ul>- funkce na automatický reset když zbývají pouze 2 slova</ul>
 <ul>- stylizace</ul>
 <br>
-Poslední update: 19:49, 22.7. 2025
+Poslední update: 0:36, 26.7. 2025
