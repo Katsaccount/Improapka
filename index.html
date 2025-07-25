@@ -254,15 +254,45 @@ html, body {
 
 <script>
   
+// Povolani
 if (sessionStorage.getItem("options1Povolani")) {
   options1Povolani = JSON.parse(sessionStorage.getItem("options1Povolani"));
+  if (options1Povolani.length === 0) {
+    options1Povolani = ["průvodčí", "prodavač", "podnikatel", "cestovatel", "fotograf", "policista", "učitel", "úředník", "voják",// "sportovec", "zedník", "programátor", "umělec", "mechanik", "instalatér", "zahradník", "ředitel", "popelář", "student", "rybář", "spisovatel", "trenér", "prezident", "právník", "reportér", "stylista", "horolezec", "zemědělec", "průvodce", "malíř pokojů", "taxikář", "dělník", "dřevorubec", "kurýr", "elektrikář", "doktor", "zdravotní sestra", "politik", "právník", "turista", "detektiv", "influencer", "kosmetička", "hudebník", "švec", "švadlena", "pilot", "námořník", "meteorolog", "barman", "barista", "číšník/servírka", "entomolog", "myslivec", "filozof", "parašutista", "tajný agent", "nájemný zabiják", "bylinkář", "kominík", "revizor", "bezdomovec", "realitní makléř", "vědec", "plavčík", "zločinec", "houbař", "vinař", "knihovník", "dj", "zákaznická podpora (helpdesk)", "terapeut", "kuchař", "věštkyně", "roztleskávačka", "ostraha", "režisér", "umývač oken", "uklízečka", "stěhovák", "převozník", "psycholog", "vrátný", "kouč", "cukrář", "pekař"
+];
+    sessionStorage.setItem("options1Povolani", JSON.stringify(options1Povolani));
+  }
+} else {
+  options1Povolani = ["průvodčí", "prodavač", "podnikatel", "cestovatel", "fotograf", "policista", "učitel", "úředník", "voják",// "sportovec", "zedník", "programátor", "umělec", "mechanik", "instalatér", "zahradník", "ředitel", "popelář", "student", "rybář", "spisovatel", "trenér", "prezident", "právník", "reportér", "stylista", "horolezec", "zemědělec", "průvodce", "malíř pokojů", "taxikář", "dělník", "dřevorubec", "kurýr", "elektrikář", "doktor", "zdravotní sestra", "politik", "právník", "turista", "detektiv", "influencer", "kosmetička", "hudebník", "švec", "švadlena", "pilot", "námořník", "meteorolog", "barman", "barista", "číšník/servírka", "entomolog", "myslivec", "filozof", "parašutista", "tajný agent", "nájemný zabiják", "bylinkář", "kominík", "revizor", "bezdomovec", "realitní makléř", "vědec", "plavčík", "zločinec", "houbař", "vinař", "knihovník", "dj", "zákaznická podpora (helpdesk)", "terapeut", "kuchař", "věštkyně", "roztleskávačka", "ostraha", "režisér", "umývač oken", "uklízečka", "stěhovák", "převozník", "psycholog", "vrátný", "kouč", "cukrář", "pekař"
+];
 }
+
+// Misto
 if (sessionStorage.getItem("options1Misto")) {
   options1Misto = JSON.parse(sessionStorage.getItem("options1Misto"));
+  if (options1Misto.length === 0) {
+    options1Misto = ["zastávka", "park", "útes", "pláž", "kino", "vlak", "jídelna", "divadlo", "les", "koupaliště",// "nádraží", "letiště", "kemp", "stan", "poušť", "loď", "kancelář", "obchod/obchodní dům", "tramvaj", "zoo", "trafika", "knihovna", "byt", "most", "letadlo", "restaurace", "ulice", "nemocnice", "pole", "tělocvična", "škola", "hory", "náves", "zámek", "vinárna", "zahrada", "muzeum", "galerie", "výtah", "čekárna", "kadeřnictví", "sauna", "tržiště", "diskotéka", "koncert", "bar", "kavárna", "vesmírná loď", "čajovna", "banka", "fronta", "pouť/lunapark", "teambuilding", "firemní večírek", "talentová soutěž", "cirkus", "mrazící box", "poslední zastávka vlaku", "u zubaře", "temné zákoutí mysli", "centrum antikonfliktního týmu", "školní jídelna", "vědecká stanice na Antarktidě", "ponorka", "očistec", "peklo", "nebe", "učňovské kadeřnictví", "pitevna", "pila", "slepičárna", "účtárna", "kuchyňka", "novorozenecké oddělení", "kuřárna", "benzínová pumpa", "šatna", "kemp", "kanoe", "karneval", "pod vodou", "zkumavka", "místo činu", "kravín", "studna", "pivní půllitr", "hranice", "zřícenina", "schůze SVJ", "přijímací pohovor"
+];
+    sessionStorage.setItem("options1Misto", JSON.stringify(options1Misto));
+  }
+} else {
+  options1Misto = ["zastávka", "park", "útes", "pláž", "kino", "vlak", "jídelna", "divadlo", "les", "koupaliště",// "nádraží", "letiště", "kemp", "stan", "poušť", "loď", "kancelář", "obchod/obchodní dům", "tramvaj", "zoo", "trafika", "knihovna", "byt", "most", "letadlo", "restaurace", "ulice", "nemocnice", "pole", "tělocvična", "škola", "hory", "náves", "zámek", "vinárna", "zahrada", "muzeum", "galerie", "výtah", "čekárna", "kadeřnictví", "sauna", "tržiště", "diskotéka", "koncert", "bar", "kavárna", "vesmírná loď", "čajovna", "banka", "fronta", "pouť/lunapark", "teambuilding", "firemní večírek", "talentová soutěž", "cirkus", "mrazící box", "poslední zastávka vlaku", "u zubaře", "temné zákoutí mysli", "centrum antikonfliktního týmu", "školní jídelna", "vědecká stanice na Antarktidě", "ponorka", "očistec", "peklo", "nebe", "učňovské kadeřnictví", "pitevna", "pila", "slepičárna", "účtárna", "kuchyňka", "novorozenecké oddělení", "kuřárna", "benzínová pumpa", "šatna", "kemp", "kanoe", "karneval", "pod vodou", "zkumavka", "místo činu", "kravín", "studna", "pivní půllitr", "hranice", "zřícenina", "schůze SVJ", "přijímací pohovor"
+];
 }
+
+// Emoce
 if (sessionStorage.getItem("options1Emoce")) {
   options1Emoce = JSON.parse(sessionStorage.getItem("options1Emoce"));
+  if (options1Emoce.length === 0) {
+    options1Emoce = ["empatie", "důvěřivost", "naivita", "výbušnost/vznětlivost", "flegmatičnost", "zamilovanost", "energičnost", //"hysterie", "trpělivost", "moudrost", "škodolibost", "otupělost", "radost", "smutek", "dramatičnost", "nápaditost/kreativita", "prospěchářství", "sebestřednost", "náladovost", "lenost", "zbabělost", "statečnost", "strach", "rozmazlenost", "úzkostlivost", "cílevědomost", "houževnatost", "poslušnost", "povýšenost", "ctižádost", "aktivní", "workoholik", "serióznost/vážnost", "bezohlednost", "vytrvalost", "bezcharakterní", "bojácný", "nedůvěřivý", "roztržitý", "líný", "lehkomyslnost", "pomstychtivost", "závist", "nepřátelství", "pesimismus", "puntičkářství", "neohroženost", "velkorysost", "vynalézavost", "rozvážnost", "stydlivost", "přecitlivělý", "asociální", "bezstarostnost", "činorodost", "depresivní", "vychloubačnost", "konzervativní", "lhostejnost", "koketnost", "lstivost", "vztahovačnost", "stydlivost/nesmělost", "nerozhodnost", "podezíravost", "přecitlivělý", "rozpustilost", "vášnivý/temperamentní", "zodpovědnost", "nezodpovědnost", "zapomětlivost", "záludnost", "impulsivní", "zbrklý", "hrdost"
+];
+    sessionStorage.setItem("options1Emoce", JSON.stringify(options1Emoce));
+  }
+} else {
+  options1Emoce = ["empatie", "důvěřivost", "naivita", "výbušnost/vznětlivost", "flegmatičnost", "zamilovanost", "energičnost", //"hysterie", "trpělivost", "moudrost", "škodolibost", "otupělost", "radost", "smutek", "dramatičnost", "nápaditost/kreativita", "prospěchářství", "sebestřednost", "náladovost", "lenost", "zbabělost", "statečnost", "strach", "rozmazlenost", "úzkostlivost", "cílevědomost", "houževnatost", "poslušnost", "povýšenost", "ctižádost", "aktivní", "workoholik", "serióznost/vážnost", "bezohlednost", "vytrvalost", "bezcharakterní", "bojácný", "nedůvěřivý", "roztržitý", "líný", "lehkomyslnost", "pomstychtivost", "závist", "nepřátelství", "pesimismus", "puntičkářství", "neohroženost", "velkorysost", "vynalézavost", "rozvážnost", "stydlivost", "přecitlivělý", "asociální", "bezstarostnost", "činorodost", "depresivní", "vychloubačnost", "konzervativní", "lhostejnost", "koketnost", "lstivost", "vztahovačnost", "stydlivost/nesmělost", "nerozhodnost", "podezíravost", "přecitlivělý", "rozpustilost", "vášnivý/temperamentní", "zodpovědnost", "nezodpovědnost", "zapomětlivost", "záludnost", "impulsivní", "zbrklý", "hrdost"
+];
 }
+
 
 
 const slides = document.querySelectorAll('.slide');
@@ -474,8 +504,6 @@ function removeWordFromList(list, word, category) {
   if (index > -1) {
     list.splice(index, 1);
     sessionStorage.setItem(`options1${category}`, JSON.stringify(list));
-    console.log("Saved list:", list);
-console.log("Session content:", sessionStorage.getItem(`options1${category}`));
 
   }
 }
@@ -535,7 +563,6 @@ function handleBagClick(imgElement) {
   (imgElement.alt === "misto" && options1Misto.length === 0) ||
   (imgElement.alt === "emoce" && options1Emoce.length === 0)
   ) {
-  console.log(`Bag-triggered reset for ${imgElement.alt}`);
   resetSlide(imgElement.alt);
   }
 
