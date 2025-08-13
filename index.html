@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Improapka</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Loved+by+the+King&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -25,6 +28,7 @@ html, body {
   height: 100%;
 }
 button.arrowLeft {
+  font-family: "Loved by the King", cursive;
   font-size: 10vw;
   margin-left: 1vw;
   margin-right: 1vw;
@@ -38,6 +42,7 @@ button.arrowLeft {
 }
 
 button.arrowRight {
+  font-family: "Loved by the King", cursive;
   font-size: 10vw;
   margin-left: -7vw;
   margin-right: 2vw;
@@ -77,36 +82,38 @@ button.arrowRight {
 }
 
 div.textStyle {
-  background-color: lightgray;
   color: black;
-  border-radius: 8vw;
-  font-size: 6vw !important;
-  padding: 4vw !important;
-  margin-top: 4vh !important;
-  font-family: Arial, Helvetica, sans-serif;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  font-family: "Loved by the King", cursive;
+  font-size: 8vw;
+  padding: 2vw;
+  margin-top: 1.5vw !important;
+  align-items: center;
+  margin: 0 auto;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .images {
-  width: 60vw !important;
+  width: 50vw !important;
 }
 
 .counterstyle {
-  font-size: 4vw !important;
-  font-family: Arial, Helvetica, sans-serif;
+  font-size: 5vw !important;
+  font-family: "Loved by the King", cursive;
+}
 }
 
-button.resetbutton {
+/*button.resetbutton {
   background-color: rgb(60, 60, 60);
   color: rgb(255, 255, 255);
   border-radius: 8vw;
-  font-size: 6vw !important;
+  font-family: "Loved by the King", cursive;
+  font-size: 7vw !important;
   padding: 2vw !important;
   margin: 1.5vh !important;
-  font-family: Arial, Helvetica, sans-serif;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-}
-}
+}*/
 
 /*normální velikost obrazovky na PC*/
 html, body {
@@ -139,17 +146,17 @@ html, body {
 }
 
 .textStyle {
-  background-color: lightgray;
   color: black;
-  border-radius: 5vw;
-  font-size: 2.5vw;
-  padding: 1.2vw;
+  font-size: 3.2vw;
+  padding: 1.5vw;
   margin-top: 3vw !important;
-  font-family: Arial, Helvetica, sans-serif;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  font-family: "Loved by the King", cursive;
   align-items: center;
   width: 80%;
   margin: 0 auto;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .arrowLeft, .arrowRight {
@@ -169,23 +176,23 @@ html, body {
 }
 
 .counterstyle {
-  font-size: 2vw;
-  font-family: Arial, Helvetica, sans-serif;
+  font-size: 2.8vw;
+  font-family: "Loved by the King", cursive;
 }
 
-.resetbutton {
+/*.resetbutton {
   background-color: rgb(60, 60, 60);
   color: rgb(255, 255, 255);
   border-radius: 5vw;
-  font-size: 2.5vw;
+  font-size: 3vw;
   padding: 1vw;
   margin: 1vw !important;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Loved by the King", cursive;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   width: 50%;
   border: none;
   margin: auto;
-}
+}*/
 
 .resetitem {
   align-items: center;
@@ -203,45 +210,45 @@ html, body {
     <div class="slide emoce" id="itemstyle">
       <div class="items">
       <!-- placeholder obrázek (emoce) ↓ -->
-        <img src="Images/Bag3.png" alt="emoce" class="images" onclick="handleBagClick(this); showWordEmoce()">
+        <img src="Images/BAGemo.png" alt="emoce" class="images" onclick="handleBagClick(this); showWordEmoce()">
           <p class="counterstyle">
             <span id="counterEmoce"></span> / <span>75</span>
           </p>
           <div class="resetitem">
           <!-- <button onclick="resetSlide('emoce')" class="resetbutton">↺</button> -->
           </div>
-        <div id="randomEmoce1" class="textStyle" onclick="lockedIn('randomEmoce1')">Možnost 1</div>
-        <div id="randomEmoce2" class="textStyle" onclick="lockedIn('randomEmoce2')">Možnost 2</div>
+        <div style="background-image: url(Images/Emo1.png);" id="randomEmoce1" class="textStyle" onclick="lockedIn('randomEmoce1')">Možnost 1</div>
+        <div style="background-image: url(Images/Emo2.png);" id="randomEmoce2" class="textStyle" onclick="lockedIn('randomEmoce2')">Možnost 2</div>
       </div>
       </div>
 
     <div class="slide povolani" id="itemstyle">
       <div class="items">
       <!-- placeholder obrázek (povolání) ↓ -->
-         <img src="Images/Bag1.png" alt="povolani" class="images" onclick="handleBagClick(this); showWordPovolani()">
+         <img src="Images/BAGpov.png" alt="povolani" class="images" onclick="handleBagClick(this); showWordPovolani()">
           <p class="counterstyle">
             <span id="counterPovolani"></span> / <span>86</span>
           </p>
           <div class="resetitem">
           <!--  <button onclick="resetSlide('povolani')" class="resetbutton">↺</button> -->
           </div>
-        <div id="randomPovolani1" class="textStyle" onclick="lockedIn('randomPovolani1')">Možnost 1</div>
-        <div id="randomPovolani2" class="textStyle" onclick="lockedIn('randomPovolani2')">Možnost 2</div>
+        <div style="background-image: url(Images/Pov1.png);" id="randomPovolani1" class="textStyle" onclick="lockedIn('randomPovolani1')">Možnost 1</div>
+        <div style="background-image: url(Images/Pov2.png);" id="randomPovolani2" class="textStyle" onclick="lockedIn('randomPovolani2')">Možnost 2</div>
         </div>
       </div>
 
     <div class="slide misto" id="itemstyle">
       <div class="items">
       <!-- placeholder obrázek (místo) ↓ -->
-        <img src="Images/Bag2.png" alt="misto" class="images" onclick="handleBagClick(this); showWordMisto()">
+        <img src="Images/BAGmis.png" alt="misto" class="images" onclick="handleBagClick(this); showWordMisto()">
           <p class="counterstyle">
             <span id="counterMisto"></span> / <span>90</span>
           </p>
           <div class="resetitem">
           <!--  <button onclick="resetSlide('misto')" class="resetbutton">↺</button> -->
           </div>
-        <div id="randomMisto1" class="textStyle" onclick="lockedIn('randomMisto1')">Možnost 1</div>
-        <div id="randomMisto2" class="textStyle" onclick="lockedIn('randomMisto2')">Možnost 2</div>
+        <div style="background-image: url(Images/Mis1.png);" id="randomMisto1" class="textStyle" onclick="lockedIn('randomMisto1')">Možnost 1</div>
+        <div style="background-image: url(Images/Mis2.png);" id="randomMisto2" class="textStyle" onclick="lockedIn('randomMisto2')">Možnost 2</div>
         </div>
       </div>
 
@@ -258,12 +265,12 @@ html, body {
 if (sessionStorage.getItem("options1Povolani")) {
   options1Povolani = JSON.parse(sessionStorage.getItem("options1Povolani"));
   if (options1Povolani.length === 0) {
-    options1Povolani = ["průvodčí", "prodavač", "podnikatel", "cestovatel", "fotograf", "policista", "učitel", "úředník", "voják",// "sportovec", "zedník", "programátor", "umělec", "mechanik", "instalatér", "zahradník", "ředitel", "popelář", "student", "rybář", "spisovatel", "trenér", "prezident", "právník", "reportér", "stylista", "horolezec", "zemědělec", "průvodce", "malíř pokojů", "taxikář", "dělník", "dřevorubec", "kurýr", "elektrikář", "doktor", "zdravotní sestra", "politik", "právník", "turista", "detektiv", "influencer", "kosmetička", "hudebník", "švec", "švadlena", "pilot", "námořník", "meteorolog", "barman", "barista", "číšník/servírka", "entomolog", "myslivec", "filozof", "parašutista", "tajný agent", "nájemný zabiják", "bylinkář", "kominík", "revizor", "bezdomovec", "realitní makléř", "vědec", "plavčík", "zločinec", "houbař", "vinař", "knihovník", "dj", "zákaznická podpora (helpdesk)", "terapeut", "kuchař", "věštkyně", "roztleskávačka", "ostraha", "režisér", "umývač oken", "uklízečka", "stěhovák", "převozník", "psycholog", "vrátný", "kouč", "cukrář", "pekař"
+    options1Povolani = ["průvodčí", "prodavač", "podnikatel", "cestovatel", "fotograf", "policista", "učitel", "úředník", "voják", "sportovec", "zedník", "programátor", "umělec", "mechanik", "instalatér", "zahradník", "ředitel", "popelář", "student", "rybář", "spisovatel", "trenér", "prezident", "právník", "reportér", "stylista", "horolezec", "zemědělec", "průvodce", "malíř pokojů", "taxikář", "dělník", "dřevorubec", "kurýr", "elektrikář", "doktor", "zdravotní sestra", "politik", "právník", "turista", "detektiv", "influencer", "kosmetička", "hudebník", "švec", "švadlena", "pilot", "námořník", "meteorolog", "barman", "barista", "číšník/servírka", "entomolog", "myslivec", "filozof", "parašutista", "tajný agent", "nájemný zabiják", "bylinkář", "kominík", "revizor", "bezdomovec", "realitní makléř", "vědec", "plavčík", "zločinec", "houbař", "vinař", "knihovník", "dj", "zákaznická podpora (helpdesk)", "terapeut", "kuchař", "věštkyně", "roztleskávačka", "ostraha", "režisér", "umývač oken", "uklízečka", "stěhovák", "převozník", "psycholog", "vrátný", "kouč", "cukrář", "pekař"
 ];
     sessionStorage.setItem("options1Povolani", JSON.stringify(options1Povolani));
   }
 } else {
-  options1Povolani = ["průvodčí", "prodavač", "podnikatel", "cestovatel", "fotograf", "policista", "učitel", "úředník", "voják",// "sportovec", "zedník", "programátor", "umělec", "mechanik", "instalatér", "zahradník", "ředitel", "popelář", "student", "rybář", "spisovatel", "trenér", "prezident", "právník", "reportér", "stylista", "horolezec", "zemědělec", "průvodce", "malíř pokojů", "taxikář", "dělník", "dřevorubec", "kurýr", "elektrikář", "doktor", "zdravotní sestra", "politik", "právník", "turista", "detektiv", "influencer", "kosmetička", "hudebník", "švec", "švadlena", "pilot", "námořník", "meteorolog", "barman", "barista", "číšník/servírka", "entomolog", "myslivec", "filozof", "parašutista", "tajný agent", "nájemný zabiják", "bylinkář", "kominík", "revizor", "bezdomovec", "realitní makléř", "vědec", "plavčík", "zločinec", "houbař", "vinař", "knihovník", "dj", "zákaznická podpora (helpdesk)", "terapeut", "kuchař", "věštkyně", "roztleskávačka", "ostraha", "režisér", "umývač oken", "uklízečka", "stěhovák", "převozník", "psycholog", "vrátný", "kouč", "cukrář", "pekař"
+  options1Povolani = ["průvodčí", "prodavač", "podnikatel", "cestovatel", "fotograf", "policista", "učitel", "úředník", "voják", "sportovec", "zedník", "programátor", "umělec", "mechanik", "instalatér", "zahradník", "ředitel", "popelář", "student", "rybář", "spisovatel", "trenér", "prezident", "právník", "reportér", "stylista", "horolezec", "zemědělec", "průvodce", "malíř pokojů", "taxikář", "dělník", "dřevorubec", "kurýr", "elektrikář", "doktor", "zdravotní sestra", "politik", "právník", "turista", "detektiv", "influencer", "kosmetička", "hudebník", "švec", "švadlena", "pilot", "námořník", "meteorolog", "barman", "barista", "číšník/servírka", "entomolog", "myslivec", "filozof", "parašutista", "tajný agent", "nájemný zabiják", "bylinkář", "kominík", "revizor", "bezdomovec", "realitní makléř", "vědec", "plavčík", "zločinec", "houbař", "vinař", "knihovník", "dj", "zákaznická podpora (helpdesk)", "terapeut", "kuchař", "věštkyně", "roztleskávačka", "ostraha", "režisér", "umývač oken", "uklízečka", "stěhovák", "převozník", "psycholog", "vrátný", "kouč", "cukrář", "pekař"
 ];
 }
 
@@ -461,7 +468,6 @@ function lockedIn(id) {
   const element = document.getElementById(id);
   const chosenWord = element.textContent.trim();
   element.style.color = "gray";
-  element.style.background = "gainsboro";
 
 
   const suffix = id.endsWith("1") ? "2" : "1";
@@ -471,11 +477,23 @@ function lockedIn(id) {
     otherElement.remove();
   }
 
-  const slide = element.closest(".slide");
-  const img = slide.querySelector("img");
-  if (img) {
-    img.src = "Images/BagChosen.png";
+const slide = element.closest(".slide");
+const img = slide.querySelector("img");
+
+if (img) {
+  switch (img.alt) {
+    case "misto":
+      img.src = "Images/BAGdkmis.png";
+      break;
+    case "povolani":
+      img.src = "Images/BAGdkpov.png";
+      break;
+    case "emoce":
+      img.src = "Images/BAGdkemo.png";
+      break;
   }
+}
+
 
   if (id.includes("Povolani")) {
   removeWordFromList(options1Povolani, chosenWord, "povolani");
@@ -536,7 +554,15 @@ function handleBagClick(imgElement) {
 
 
   lockedElement.style.color = "";
-  lockedElement.style.background = "";
+
+const originalBackgrounds = {
+  randomEmoce1: "Images/Emo1.png",
+  randomEmoce2: "Images/Emo2.png",
+  randomPovolani1: "Images/Pov1.png",
+  randomPovolani2: "Images/Pov2.png",
+  randomMisto1: "Images/Mis1.png",
+  randomMisto2: "Images/Mis2.png"
+};
 
 
   const suffix = id.endsWith("1") ? "2" : "1";
@@ -545,17 +571,19 @@ function handleBagClick(imgElement) {
     const recreated = document.createElement("div");
     recreated.id = otherId;
     recreated.className = lockedElement.className;
-    recreated.textContent = lockedElement.textContent;
+    recreated.textContent = otherId.endsWith("1") ? "Možnost 1" : "Možnost 2";
     recreated.onclick = () => lockedIn(otherId);
+    recreated.style.backgroundImage = `url('${originalBackgrounds[otherId]}')`;
     lockedElement.parentElement.appendChild(recreated);
+
   }
 
   if (imgElement.alt === "povolani") {
-    imgElement.src = "Images/Bag1.png";
+    imgElement.src = "Images/BAGpov.png";
   } else if (imgElement.alt === "misto") {
-    imgElement.src = "Images/Bag2.png";
+    imgElement.src = "Images/BAGmis.png";
   } else if (imgElement.alt === "emoce") {
-    imgElement.src = "Images/Bag3.png";
+    imgElement.src = "Images/BAGemo.png";
   }
 
   if (
@@ -576,7 +604,7 @@ const slideConfig = {
     word1Id: "randomEmoce1",
     word2Id: "randomEmoce2",
     counterId: "counterEmoce",
-    defaultImage: "Images/Bag3.png"
+    defaultImage: "Images/BAGemo.png"
   },
   povolani: {
     original: ["průvodčí", "prodavač", "podnikatel", "cestovatel", "fotograf", "policista", "učitel", "úředník", "voják", "sportovec", "zedník", "programátor", "umělec", "mechanik", "instalatér", "zahradník", "ředitel", "popelář", "student", "rybář", "spisovatel", "trenér", "prezident", "právník", "reportér", "stylista", "horolezec", "zemědělec", "průvodce", "malíř pokojů", "taxikář", "dělník", "dřevorubec", "kurýr", "elektrikář", "doktor", "zdravotní sestra", "politik", "právník", "turista", "detektiv", "influencer", "kosmetička", "hudebník", "švec", "švadlena", "pilot", "námořník", "meteorolog", "barman", "barista", "číšník/servírka", "entomolog", "myslivec", "filozof", "parašutista", "tajný agent", "nájemný zabiják", "bylinkář", "kominík", "revizor", "bezdomovec", "realitní makléř", "vědec", "plavčík", "zločinec", "houbař", "vinař", "knihovník", "dj", "zákaznická podpora (helpdesk)", "terapeut", "kuchař", "věštkyně", "roztleskávačka", "ostraha", "režisér", "umývač oken", "uklízečka", "stěhovák", "převozník", "psycholog", "vrátný", "kouč", "cukrář", "pekař"
@@ -585,7 +613,7 @@ const slideConfig = {
     word1Id: "randomPovolani1",
     word2Id: "randomPovolani2",
     counterId: "counterPovolani",
-    defaultImage: "Images/Bag1.png"
+    defaultImage: "Images/BAGpov.png"
   },
   misto: {
     original: ["zastávka", "park", "útes", "pláž", "kino", "vlak", "jídelna", "divadlo", "les", "koupaliště", "nádraží", "letiště", "kemp", "stan", "poušť", "loď", "kancelář", "obchod/obchodní dům", "tramvaj", "zoo", "trafika", "knihovna", "byt", "most", "letadlo", "restaurace", "ulice", "nemocnice", "pole", "tělocvična", "škola", "hory", "náves", "zámek", "vinárna", "zahrada", "muzeum", "galerie", "výtah", "čekárna", "kadeřnictví", "sauna", "tržiště", "diskotéka", "koncert", "bar", "kavárna", "vesmírná loď", "čajovna", "banka", "fronta", "pouť/lunapark", "teambuilding", "firemní večírek", "talentová soutěž", "cirkus", "mrazící box", "poslední zastávka vlaku", "u zubaře", "temné zákoutí mysli", "centrum antikonfliktního týmu", "školní jídelna", "vědecká stanice na Antarktidě", "ponorka", "očistec", "peklo", "nebe", "učňovské kadeřnictví", "pitevna", "pila", "slepičárna", "účtárna", "kuchyňka", "novorozenecké oddělení", "kuřárna", "benzínová pumpa", "šatna", "kemp", "kanoe", "karneval", "pod vodou", "zkumavka", "místo činu", "kravín", "studna", "pivní půllitr", "hranice", "zřícenina", "schůze SVJ", "přijímací pohovor"
@@ -594,7 +622,7 @@ const slideConfig = {
     word1Id: "randomMisto1",
     word2Id: "randomMisto2",
     counterId: "counterMisto",
-    defaultImage: "Images/Bag2.png"
+    defaultImage: "Images/BAGmis.png"
   }
 };
 
@@ -623,7 +651,6 @@ function resetSlide(category) {
       document.getElementById(word1Id).parentElement.appendChild(el);
     } else {
       el.style.color = "";
-      el.style.background = "";
       el.textContent = id.endsWith("1") ? "Možnost 1" : "Možnost 2";
     }
     
@@ -646,10 +673,8 @@ function saveList() {
   sessionStorage.setItem("options1Misto", JSON.stringify(options1Misto));
   sessionStorage.setItem("options1Emoce", JSON.stringify(options1Emoce));
 }
-
 </script>
 
 
 </body>
 </html>
-
