@@ -103,6 +103,8 @@ div.textStyle {
 
 .images {
   width: 45vw !important;
+  margin: 0 auto;
+  padding-right: 100px;
 }
 
 .counterstyle {
@@ -140,11 +142,6 @@ html, body {
   background-color: black;
 }
 
-*, *::before, *::after {
-  box-sizing: inherit;
-}
-
-
 .container {
   display: flex;
   flex-direction: row;
@@ -179,18 +176,18 @@ html, body {
 }
 
 #itemstyle {
-  width: 100%;
+  width: 80%;
   align-items: center;
 }
 
 .textStyle {
   color: black;
-  font-size: 1.6rem;
+  font-size: 1.2rem;
   padding: 1rem;
   margin-top: 1rem !important;
   font-family: "Loved by the King", cursive;
   align-items: center;
-  width: 70%;
+  width: 90%;
   margin: 0 auto;
   background-size: 100% 100%; 
   background-repeat: no-repeat;
@@ -198,7 +195,19 @@ html, body {
   line-height: 1;
   max-width: 100%;
   word-break: break-word;
-  transition: width 0.2s ease;
+  transition: width 0.1s ease;
+}
+
+@media (min-width: 800px) {
+  .textStyle {
+    font-size: 1.5rem;
+  }
+}
+
+@media (min-width: 1000px) {
+  .textStyle {
+    width: 0.rem;
+  }
 }
 
 
@@ -213,12 +222,18 @@ html, body {
 }
 
 .images {
-  width: 11.5rem;
+  width: 7rem;
   align-items: center;
   text-align: center;
   transition: width 0.2s ease;
 }
 
+
+@media (min-width: 800px) {
+  .images {
+    width: 13rem;
+  }
+}
 
 @media (min-width: 1000px) {
   .images {
@@ -250,6 +265,31 @@ html, body {
   align-items: center;
   text-align: center;
 }*/
+
+@media screen and (max-height: 500px) {
+  .textStyle {
+    font-size: 1.3rem;
+    width: 70%;
+  }
+
+  .images {
+    width: 6rem;
+  }
+
+  .counterstyle {
+    font-size: 1rem;
+  }
+
+  .border {
+    padding: 3vw;
+  }
+
+  #itemstyle {
+    width: 40%;
+    align-items: center;
+  }
+}
+
 
 </style>
 </head>
@@ -405,11 +445,12 @@ function showWordPovolani() {
   if (!lockedWords.randomPovolani1) {
     word1 = options1Povolani[Math.floor(Math.random() * options1Povolani.length)];
 
+    const div1 = document.getElementById("randomPovolani1");
     if (word1 && word1.trim() !== "") {
-      document.getElementById("randomPovolani1").textContent = word1;
+      div1.textContent = word1;
+      div1.style.visibility = "visible";
     } else {
-      const div1 = document.getElementById("randomPovolani1");
-      if (div1) div1.remove();
+      if (div1) div1.style.visibility = "hidden";
     }
   } else {
     word1 = document.getElementById("randomPovolani1").textContent;
@@ -419,11 +460,12 @@ function showWordPovolani() {
     const filteredOptions = options1Povolani.filter(word => word !== word1);
     word2 = filteredOptions[Math.floor(Math.random() * filteredOptions.length)];
 
+    const div2 = document.getElementById("randomPovolani2");
     if (word2 && word2.trim() !== "") {
-      document.getElementById("randomPovolani2").textContent = word2;
+      div2.textContent = word2;
+      div2.style.visibility = "visible";
     } else {
-      const div2 = document.getElementById("randomPovolani2");
-      if (div2) div2.remove();
+      if (div2) div2.style.visibility = "hidden";
     }
   }
 }
@@ -451,10 +493,12 @@ function showWordMisto() {
     word1 = options1Misto[Math.floor(Math.random() * options1Misto.length)];
 
     if (word1 && word1.trim() !== "") {
-      document.getElementById("randomMisto1").textContent = word1;
+      const div1 = document.getElementById("randomMisto1");
+      div1.textContent = word1;
+      div1.style.visibility = "visible";
     } else {
       const div1 = document.getElementById("randomMisto1");
-      if (div1) div1.remove();
+      if (div1) div1.style.visibility = "hidden";
     }
   } else {
     word1 = document.getElementById("randomMisto1").textContent;
@@ -465,13 +509,16 @@ function showWordMisto() {
     word2 = filteredOptions[Math.floor(Math.random() * filteredOptions.length)];
 
     if (word2 && word2.trim() !== "") {
-      document.getElementById("randomMisto2").textContent = word2;
+      const div2 = document.getElementById("randomMisto2");
+      div2.textContent = word2;
+      div2.style.visibility = "visible";
     } else {
       const div2 = document.getElementById("randomMisto2");
-      if (div2) div2.remove();
+      if (div2) div2.style.visibility = "hidden";
     }
   }
 }
+
 
   var options1Emoce;
     if (sessionStorage.getItem("options1Emoce")) {
@@ -495,10 +542,12 @@ function showWordEmoce() {
     word1 = options1Emoce[Math.floor(Math.random() * options1Emoce.length)];
 
     if (word1 && word1.trim() !== "") {
-      document.getElementById("randomEmoce1").textContent = word1;
+      const div1 = document.getElementById("randomEmoce1");
+      div1.textContent = word1;
+      div1.style.visibility = "visible";
     } else {
       const div1 = document.getElementById("randomEmoce1");
-      if (div1) div1.remove();
+      if (div1) div1.style.visibility = "hidden";
     }
   } else {
     word1 = document.getElementById("randomEmoce1").textContent;
@@ -509,13 +558,16 @@ function showWordEmoce() {
     word2 = filteredOptions[Math.floor(Math.random() * filteredOptions.length)];
 
     if (word2 && word2.trim() !== "") {
-      document.getElementById("randomEmoce2").textContent = word2;
+      const div2 = document.getElementById("randomEmoce2");
+      div2.textContent = word2;
+      div2.style.visibility = "visible";
     } else {
       const div2 = document.getElementById("randomEmoce2");
-      if (div2) div2.remove();
+      if (div2) div2.style.visibility = "hidden";
     }
   }
 }
+
 
 
 function lockedIn(id) {
@@ -533,7 +585,7 @@ function lockedIn(id) {
   const otherId = id.slice(0, -1) + suffix;
   const otherElement = document.getElementById(otherId);
   if (otherElement) {
-    otherElement.remove();
+    otherElement.style.visibility = "hidden";
   }
 
 const slide = element.closest(".slide");
@@ -737,4 +789,3 @@ function saveList() {
 
 </body>
 </html>
-
