@@ -13,7 +13,7 @@
 
 <style>
 /*menší velikost obrazovky na PC, velikost obrazovky mobil*/
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 800px) {
 html, body {
   height: 100%;
   margin: 0;
@@ -28,6 +28,7 @@ html, body {
   width: 100%;
   height: 100%;
 }
+
 button.arrowLeft {
   font-family: "Loved by the King", cursive;
   font-size: 10vw;
@@ -40,6 +41,7 @@ button.arrowLeft {
   cursor: pointer;
   z-index: 10;
   display: inline-block !important;
+  color: white;
 }
 
 button.arrowRight {
@@ -52,6 +54,7 @@ button.arrowRight {
   cursor: pointer;
   z-index: 10;
   display: inline-block !important;
+  color: white;
 }
 
 .container {
@@ -60,8 +63,6 @@ button.arrowRight {
   justify-content: center;
   align-items: center;
   max-width: 1200px !important;
-  padding: 40px 20px;
-  margin: 50px auto;
   box-sizing: border-box;
   min-height: calc(100vh - 80px);
 }
@@ -104,10 +105,23 @@ div.textStyle {
   width: 50vw !important;
 }
 
+@media (max-width: 800px) {
+  .images {
+    width: 14rem !important;
+  }
+}
+
 .counterstyle {
   font-size: 5vw !important;
   font-family: "Loved by the King", cursive;
 }
+
+@media (max-width: 800px) {
+  .counterstyle {
+    font-size: 1.2rem !important;
+  }
+}
+
 }
 
 /*button.resetbutton {
@@ -129,6 +143,7 @@ html, body {
   overflow-x: hidden;
   box-sizing: border-box;
   cursor: url("Images/cursor.png"),  default;
+  background-color: black;
 }
 
 *, *::before, *::after {
@@ -142,16 +157,30 @@ html, body {
   justify-content: center;
   align-items: center;
   max-width: 1200px !important;
-  padding: 40px 20px;
-  margin: 50px auto;
+  margin: 30px auto;
   box-sizing: border-box;
   min-height: calc(100vh - 80px);
+  overflow: hidden;
 }
 
 
 .items {
   text-align: center;
   align-items: center;
+  width: 100%;
+}
+
+.border {
+  box-sizing: border-box;
+  border-style: solid;
+  border-color: black;
+  border-width: 0.7rem;
+  border-top-width: 0;
+  border-bottom-width: 0;
+  padding: 2rem;
+  margin: 0 auto;
+  background-color: white;
+  max-width: 100%;
   width: 100%;
 }
 
@@ -208,6 +237,7 @@ html, body {
   font-family: "Loved by the King", cursive;
 }
 
+
 /*.resetbutton {
   background-color: rgb(60, 60, 60);
   color: rgb(255, 255, 255);
@@ -236,6 +266,7 @@ html, body {
 
   <div class="container">
     <div class="slide emoce" id="itemstyle">
+      <div class="border">
       <div class="items">
       <!-- placeholder obrázek (emoce) ↓ -->
         <img src="Images/BAGemo.png" alt="emoce" id="ImgEMO" class="images" onclick="handleBagClick(this); showWordEmoce()">
@@ -249,8 +280,10 @@ html, body {
         <div style="background-image: url(Images/Emo2.png);" id="randomEmoce2" class="textStyle" onclick="lockedIn('randomEmoce2')">Možnost 2</div>
       </div>
       </div>
+    </div>
 
     <div class="slide povolani" id="itemstyle">
+      <div class="border">
       <div class="items">
       <!-- placeholder obrázek (povolání) ↓ -->
          <img src="Images/BAGpov.png" alt="povolani" class="images" onclick="handleBagClick(this); showWordPovolani()">
@@ -264,8 +297,11 @@ html, body {
         <div style="background-image: url(Images/Pov2.png);" id="randomPovolani2" class="textStyle" onclick="lockedIn('randomPovolani2')">Možnost 2</div>
         </div>
       </div>
+      </div>
+
 
     <div class="slide misto" id="itemstyle">
+      <div class="border">
       <div class="items">
       <!-- placeholder obrázek (místo) ↓ -->
         <img src="Images/BAGmis.png" alt="misto" class="images" onclick="handleBagClick(this); showWordMisto()">
@@ -278,6 +314,7 @@ html, body {
         <div style="background-image: url(Images/Mis1.png);" id="randomMisto1" class="textStyle" onclick="lockedIn('randomMisto1')">Možnost 1</div>
         <div style="background-image: url(Images/Mis2.png);" id="randomMisto2" class="textStyle" onclick="lockedIn('randomMisto2')">Možnost 2</div>
         </div>
+      </div>
       </div>
 
   </div>
