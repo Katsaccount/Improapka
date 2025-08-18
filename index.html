@@ -44,6 +44,7 @@ button.arrowLeft {
   color: white;
 }
 
+
 button.arrowRight {
   font-family: "Loved by the King", cursive;
   font-size: 10vw;
@@ -62,9 +63,7 @@ button.arrowRight {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  max-width: 1200px !important;
   box-sizing: border-box;
-  min-height: calc(100vh - 80px);
 }
 
 .slide {
@@ -77,47 +76,36 @@ button.arrowRight {
 
 .slide.active {
   display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .items {
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
 }
+
 
 div.textStyle {
   color: black;
-  font-size: 1.6rem;
-  padding: 1rem;
-  margin-top: 1rem !important;
-  font-family: "Loved by the King", cursive;
-  align-items: center;
-  width: 70%;
+  font-size: 5vw;
+  width: 80%;
+  max-width: 500px;
   margin: 0 auto;
-  background-size: 100% 100%; 
-  background-repeat: no-repeat;
-  background-position: center;
-  line-height: 1;
-  max-width: 100%;
-  word-break: break-word;
-  transition: width 0.2s ease;
+  text-align: center;
 }
 
 .images {
-  width: 45vw !important;
+  display: block;
   margin: 0 auto;
-  padding-right: 100px;
+  width: 40vw !important;
 }
 
 .counterstyle {
-  font-size: 5vw !important;
+  font-size: 4.5vw !important;
   font-family: "Loved by the King", cursive;
-}
-
-@media (max-width: 800px) {
-  .counterstyle {
-    font-size: 1.2rem !important;
-  }
-}
-
 }
 
 /*button.resetbutton {
@@ -130,6 +118,9 @@ div.textStyle {
   margin: 1.5vh !important;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }*/
+
+}
+
 
 /*normální velikost obrazovky na PC*/
 html, body {
@@ -154,7 +145,6 @@ html, body {
   overflow: hidden;
 }
 
-
 .items {
   text-align: center;
   align-items: center;
@@ -176,7 +166,7 @@ html, body {
 }
 
 #itemstyle {
-  width: 80%;
+  width: 100%;
   align-items: center;
 }
 
@@ -198,19 +188,6 @@ html, body {
   transition: width 0.1s ease;
 }
 
-@media (min-width: 800px) {
-  .textStyle {
-    font-size: 1.5rem;
-  }
-}
-
-@media (min-width: 1000px) {
-  .textStyle {
-    width: 0.rem;
-  }
-}
-
-
 .arrowLeft, .arrowRight {
   font-size: 2rem;
   background: none;
@@ -228,18 +205,6 @@ html, body {
   transition: width 0.2s ease;
 }
 
-
-@media (min-width: 800px) {
-  .images {
-    width: 13rem;
-  }
-}
-
-@media (min-width: 1000px) {
-  .images {
-    width: 16rem;
-  }
-}
 
 .counterstyle {
   font-size: 1.4rem;
@@ -266,29 +231,31 @@ html, body {
   text-align: center;
 }*/
 
-@media screen and (max-height: 500px) {
-  .textStyle {
-    font-size: 1.3rem;
-    width: 70%;
-  }
 
+@media (min-width: 1000px) {
   .images {
-    width: 6rem;
+    width: 16rem;
   }
 
-  .counterstyle {
-    font-size: 1rem;
-  }
-
-  .border {
-    padding: 3vw;
-  }
-
-  #itemstyle {
-    width: 40%;
-    align-items: center;
+  .textStyle {
+    width: 12rem;
   }
 }
+
+@media (min-width: 800px) {
+  .textStyle {
+    font-size: 1.5rem;
+  }
+
+    .images {
+    width: 13rem;
+  }
+
+    .counterstyle {
+    font-size: 1.2rem !important;
+  }
+}
+
 
 
 </style>
@@ -789,4 +756,3 @@ function saveList() {
 
 </body>
 </html>
-
