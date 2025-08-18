@@ -27,6 +27,7 @@ html, body {
   position: relative;
   width: 100%;
   height: 100%;
+  background-color: black;
 }
 
 button.arrowLeft {
@@ -44,6 +45,19 @@ button.arrowLeft {
   color: white;
 }
 
+div.border {
+  box-sizing: border-box;
+  border-style: solid;
+  border-color: black;
+  background-color: white;
+  border-width: 0rem;
+  border-top-width: 0;
+  border-bottom-width: 0;
+  padding: 10vw;
+  margin: 0 auto;
+  max-width: 100%;
+  width: 100%;
+}
 
 button.arrowRight {
   font-family: "Loved by the King", cursive;
@@ -129,7 +143,7 @@ html, body {
   overflow-x: hidden;
   box-sizing: border-box;
   cursor: url("Images/cursor.png"),  default;
-  background-color: black;
+  background-color: white;
 }
 
 .container {
@@ -151,17 +165,8 @@ html, body {
 }
 
 .border {
-  box-sizing: border-box;
-  border-style: solid;
-  border-color: black;
-  border-width: 0.7rem;
-  border-top-width: 0;
-  border-bottom-width: 0;
-  padding: 2rem;
+  padding: 0;
   margin: 0 auto;
-  background-color: white;
-  max-width: 100%;
-  width: 100%;
 }
 
 #itemstyle {
@@ -176,7 +181,7 @@ html, body {
   margin-top: 1rem !important;
   font-family: "Loved by the King", cursive;
   align-items: center;
-  width: 90%;
+  width: 20vw;
   margin: 0 auto;
   background-size: 100% 100%; 
   background-repeat: no-repeat;
@@ -198,7 +203,7 @@ html, body {
 }
 
 .images {
-  width: 7rem;
+  width: 10rem;
   align-items: center;
   text-align: center;
   transition: width 0.2s ease;
@@ -237,7 +242,7 @@ html, body {
   }
 
   .textStyle {
-    width: 12rem;
+    width: 50%;
   }
 }
 
@@ -246,11 +251,11 @@ html, body {
     font-size: 1.5rem;
   }
 
-    .images {
+  .images {
     width: 13rem;
   }
 
-    .counterstyle {
+  .counterstyle {
     font-size: 1.2rem !important;
   }
 }
@@ -275,8 +280,8 @@ html, body {
           <div class="resetitem">
           <!-- <button onclick="resetSlide('emoce')" class="resetbutton">↺</button> -->
           </div>
-        <div style="background-image: url(Images/Emo1.png);" id="randomEmoce1" class="textStyle" onclick="lockedIn('randomEmoce1')">Klikni na pytlíček!</div>
-        <div style="background-image: url(Images/Emo2.png);" id="randomEmoce2" class="textStyle" onclick="lockedIn('randomEmoce2')">Klikni na pytlíček!</div>
+        <div style="background-image: url(Images/Emo1.png);" id="randomEmoce1" class="textStyle" onclick="lockedIn('randomEmoce1')">Klikni na balíček!</div>
+        <div style="background-image: url(Images/Emo2.png);" id="randomEmoce2" class="textStyle" onclick="lockedIn('randomEmoce2')">Klikni na balíček!</div>
       </div>
       </div>
     </div>
@@ -291,8 +296,8 @@ html, body {
           <div class="resetitem">
           <!--  <button onclick="resetSlide('povolani')" class="resetbutton">↺</button> -->
           </div>
-        <div style="background-image: url(Images/Pov1.png);" id="randomPovolani1" class="textStyle" onclick="lockedIn('randomPovolani1')">Klikni na pytlíček!</div>
-        <div style="background-image: url(Images/Pov2.png);" id="randomPovolani2" class="textStyle" onclick="lockedIn('randomPovolani2')">Klikni na pytlíček!</div>
+        <div style="background-image: url(Images/Pov1.png);" id="randomPovolani1" class="textStyle" onclick="lockedIn('randomPovolani1')">Klikni na balíček!</div>
+        <div style="background-image: url(Images/Pov2.png);" id="randomPovolani2" class="textStyle" onclick="lockedIn('randomPovolani2')">Klikni na balíček!</div>
         </div>
       </div>
       </div>
@@ -308,8 +313,8 @@ html, body {
           <div class="resetitem">
           <!--  <button onclick="resetSlide('misto')" class="resetbutton">↺</button> -->
           </div>
-        <div style="background-image: url(Images/Mis1.png);" id="randomMisto1" class="textStyle" onclick="lockedIn('randomMisto1')">Klikni na pytlíček!</div>
-        <div style="background-image: url(Images/Mis2.png);" id="randomMisto2" class="textStyle" onclick="lockedIn('randomMisto2')">Klikni na pytlíček!</div>
+        <div style="background-image: url(Images/Mis1.png);" id="randomMisto1" class="textStyle" onclick="lockedIn('randomMisto1')">Klikni na balíček!</div>
+        <div style="background-image: url(Images/Mis2.png);" id="randomMisto2" class="textStyle" onclick="lockedIn('randomMisto2')">Klikni na balíček!</div>
         </div>
       </div>
       </div>
@@ -743,4 +748,3 @@ function saveList() {
 
 </body>
 </html>
-
