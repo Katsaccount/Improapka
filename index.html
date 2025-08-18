@@ -118,7 +118,6 @@ div.textStyle {
   margin: 1.5vh !important;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }*/
-
 }
 
 
@@ -269,15 +268,15 @@ html, body {
     <div class="slide emoce" id="itemstyle">
       <div class="border">
       <div class="items">
-        <img src="Images/BAGstartemo.png" alt="emoce" id="ImgEMO" class="images" onclick="handleBagClick(this); showWordEmoce()">
+        <img src="Images/BAGemo.png" alt="emoce" id="ImgEMO" class="images" onclick="handleBagClick(this); showWordEmoce()">
           <p class="counterstyle">
             <span id="counterEmoce"></span> / <span>75</span>
           </p>
           <div class="resetitem">
           <!-- <button onclick="resetSlide('emoce')" class="resetbutton">↺</button> -->
           </div>
-        <div style="background-image: url(Images/Emo1.png);" id="randomEmoce1" class="textStyle" onclick="lockedIn('randomEmoce1')">Možnost 1</div>
-        <div style="background-image: url(Images/Emo2.png);" id="randomEmoce2" class="textStyle" onclick="lockedIn('randomEmoce2')">Možnost 2</div>
+        <div style="background-image: url(Images/Emo1.png);" id="randomEmoce1" class="textStyle" onclick="lockedIn('randomEmoce1')">Klikni na balíček!</div>
+        <div style="background-image: url(Images/Emo2.png);" id="randomEmoce2" class="textStyle" onclick="lockedIn('randomEmoce2')">Klikni na balíček!</div>
       </div>
       </div>
     </div>
@@ -285,15 +284,15 @@ html, body {
     <div class="slide povolani" id="itemstyle">
       <div class="border">
       <div class="items">
-         <img src="Images/BAGstartpov.png" alt="povolani" class="images" onclick="handleBagClick(this); showWordPovolani()">
+         <img src="Images/BAGpov.png" alt="povolani" class="images" onclick="handleBagClick(this); showWordPovolani()">
           <p class="counterstyle">
             <span id="counterPovolani"></span> / <span>86</span>
           </p>
           <div class="resetitem">
           <!--  <button onclick="resetSlide('povolani')" class="resetbutton">↺</button> -->
           </div>
-        <div style="background-image: url(Images/Pov1.png);" id="randomPovolani1" class="textStyle" onclick="lockedIn('randomPovolani1')">Možnost 1</div>
-        <div style="background-image: url(Images/Pov2.png);" id="randomPovolani2" class="textStyle" onclick="lockedIn('randomPovolani2')">Možnost 2</div>
+        <div style="background-image: url(Images/Pov1.png);" id="randomPovolani1" class="textStyle" onclick="lockedIn('randomPovolani1')">Klikni na balíček!</div>
+        <div style="background-image: url(Images/Pov2.png);" id="randomPovolani2" class="textStyle" onclick="lockedIn('randomPovolani2')">Klikni na balíček!</div>
         </div>
       </div>
       </div>
@@ -302,15 +301,15 @@ html, body {
     <div class="slide misto" id="itemstyle">
       <div class="border">
       <div class="items">
-        <img src="Images/BAGstartmis.png" alt="misto" class="images" onclick="handleBagClick(this); showWordMisto()">
+        <img src="Images/BAGmis.png" alt="misto" class="images" onclick="handleBagClick(this); showWordMisto()">
           <p class="counterstyle">
             <span id="counterMisto"></span> / <span>90</span>
           </p>
           <div class="resetitem">
           <!--  <button onclick="resetSlide('misto')" class="resetbutton">↺</button> -->
           </div>
-        <div style="background-image: url(Images/Mis1.png);" id="randomMisto1" class="textStyle" onclick="lockedIn('randomMisto1')">Možnost 1</div>
-        <div style="background-image: url(Images/Mis2.png);" id="randomMisto2" class="textStyle" onclick="lockedIn('randomMisto2')">Možnost 2</div>
+        <div style="background-image: url(Images/Mis1.png);" id="randomMisto1" class="textStyle" onclick="lockedIn('randomMisto1')">Klikni na balíček!</div>
+        <div style="background-image: url(Images/Mis2.png);" id="randomMisto2" class="textStyle" onclick="lockedIn('randomMisto2')">Klikni na balíček!</div>
         </div>
       </div>
       </div>
@@ -324,7 +323,7 @@ html, body {
 
 <script>
 
-// Povolani
+
 if (sessionStorage.getItem("options1Povolani")) {
   options1Povolani = JSON.parse(sessionStorage.getItem("options1Povolani"));
   if (options1Povolani.length === 0) {
@@ -337,7 +336,7 @@ if (sessionStorage.getItem("options1Povolani")) {
 ];
 }
 
-// Misto
+
 if (sessionStorage.getItem("options1Misto")) {
   options1Misto = JSON.parse(sessionStorage.getItem("options1Misto"));
   if (options1Misto.length === 0) {
@@ -350,7 +349,7 @@ if (sessionStorage.getItem("options1Misto")) {
 ];
 }
 
-// Emoce
+
 if (sessionStorage.getItem("options1Emoce")) {
   options1Emoce = JSON.parse(sessionStorage.getItem("options1Emoce"));
   if (options1Emoce.length === 0) {
@@ -413,13 +412,8 @@ options1Povolani.length;
 
 
 function showWordPovolani() {
+  lockedWords.hasBeenClickedPovolani = true;
   if (lockedWords.pairGeneratedPovolani) return;
-
-  const img = document.querySelector('img[alt="povolani"]');
-  if (!lockedWords.hasBeenClickedPovolani) {
-    img.src = "Images/BAGpov.png";
-    lockedWords.hasBeenClickedPovolani = true;
-  }
 
   let word1 = options1Povolani[Math.floor(Math.random() * options1Povolani.length)];
   let filteredOptions = options1Povolani.filter(word => word !== word1);
@@ -458,13 +452,8 @@ document.getElementById("counterMisto").textContent =
 options1Misto.length;
 
 function showWordMisto() {
+  lockedWords.hasBeenClickedMisto = true;
   if (lockedWords.pairGeneratedMisto) return;
-
-  const img = document.querySelector('img[alt="misto"]');
-  if (!lockedWords.hasBeenClickedPovolani) {
-    img.src = "Images/BAGmis.png";
-    lockedWords.hasBeenClickedMisto = true;
-  }
 
   let word1 = options1Misto[Math.floor(Math.random() * options1Misto.length)];
   let filteredOptions = options1Misto.filter(word => word !== word1);
@@ -503,13 +492,8 @@ options1Emoce.length;
 
 
 function showWordEmoce() {
+  lockedWords.hasBeenClickedEmoce = true;
   if (lockedWords.pairGeneratedEmoce) return;
-
-  const img = document.querySelector('img[alt="emoce"]');
-  if (!lockedWords.hasBeenClickedEmoce) {
-    img.src = "Images/BAGemo.png";
-    lockedWords.hasBeenClickedEmoce = true;
-  }
 
   let word1 = options1Emoce[Math.floor(Math.random() * options1Emoce.length)];
   let filteredOptions = options1Emoce.filter(word => word !== word1);
@@ -531,10 +515,14 @@ function showWordEmoce() {
   lockedWords.pairGeneratedEmoce = true;
 }
 
-
-
-
 function lockedIn(id) {
+  if (
+    (id.includes("Emoce") && !lockedWords.hasBeenClickedEmoce) ||
+    (id.includes("Povolani") && !lockedWords.hasBeenClickedPovolani) ||
+    (id.includes("Misto") && !lockedWords.hasBeenClickedMisto)
+  ) {
+    return;
+  }
 
   if (lockedWords[id]) return;
 
@@ -568,7 +556,6 @@ if (img) {
       break;
   }
 }
-
 
   if (id.includes("Povolani")) {
   lockedWords.pairGeneratedPovolani = false;
