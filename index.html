@@ -12,7 +12,7 @@
 <body>
 
 <style>
-/*menší velikost obrazovky na PC, velikost obrazovky mobil*/
+/*Mobil*/
 @media only screen and (max-width: 600px) {
 html, body {
   height: 100%;
@@ -122,7 +122,7 @@ div.textStyle {
 }
 
 
-/*normální velikost obrazovky na PC*/
+/*PC*/
 html, body {
   height: 100%;
   margin: 0;
@@ -269,8 +269,7 @@ html, body {
     <div class="slide emoce" id="itemstyle">
       <div class="border">
       <div class="items">
-      <!-- placeholder obrázek (emoce) ↓ -->
-        <img src="Images/BAGemo.png" alt="emoce" id="ImgEMO" class="images" onclick="handleBagClick(this); showWordEmoce()">
+        <img src="Images/BAGstartemo.png" alt="emoce" id="ImgEMO" class="images" onclick="handleBagClick(this); showWordEmoce()">
           <p class="counterstyle">
             <span id="counterEmoce"></span> / <span>75</span>
           </p>
@@ -286,8 +285,7 @@ html, body {
     <div class="slide povolani" id="itemstyle">
       <div class="border">
       <div class="items">
-      <!-- placeholder obrázek (povolání) ↓ -->
-         <img src="Images/BAGpov.png" alt="povolani" class="images" onclick="handleBagClick(this); showWordPovolani()">
+         <img src="Images/BAGstartpov.png" alt="povolani" class="images" onclick="handleBagClick(this); showWordPovolani()">
           <p class="counterstyle">
             <span id="counterPovolani"></span> / <span>86</span>
           </p>
@@ -304,8 +302,7 @@ html, body {
     <div class="slide misto" id="itemstyle">
       <div class="border">
       <div class="items">
-      <!-- placeholder obrázek (místo) ↓ -->
-        <img src="Images/BAGmis.png" alt="misto" class="images" onclick="handleBagClick(this); showWordMisto()">
+        <img src="Images/BAGstartmis.png" alt="misto" class="images" onclick="handleBagClick(this); showWordMisto()">
           <p class="counterstyle">
             <span id="counterMisto"></span> / <span>90</span>
           </p>
@@ -326,7 +323,7 @@ html, body {
 
 
 <script>
-  
+
 // Povolani
 if (sessionStorage.getItem("options1Povolani")) {
   options1Povolani = JSON.parse(sessionStorage.getItem("options1Povolani"));
@@ -390,7 +387,16 @@ function showNext() {
 updateSlides();
 
 
-const lockedWords = {};
+const lockedWords = {
+  hasBeenClickedEmoce: false,
+  hasBeenClickedPovolani: false,
+  hasBeenClickedMisto: false,
+};
+
+lockedWords.pairGeneratedEmoce = false;
+lockedWords.pairGeneratedPovolani = false;
+lockedWords.pairGeneratedMisto = false;
+
 
   var options1Povolani;
     if (sessionStorage.getItem("options1Povolani")) {
@@ -407,34 +413,32 @@ options1Povolani.length;
 
 
 function showWordPovolani() {
-  let word1, word2;
+  if (lockedWords.pairGeneratedPovolani) return;
 
-  if (!lockedWords.randomPovolani1) {
-    word1 = options1Povolani[Math.floor(Math.random() * options1Povolani.length)];
-
-    const div1 = document.getElementById("randomPovolani1");
-    if (word1 && word1.trim() !== "") {
-      div1.textContent = word1;
-      div1.style.visibility = "visible";
-    } else {
-      if (div1) div1.style.visibility = "hidden";
-    }
-  } else {
-    word1 = document.getElementById("randomPovolani1").textContent;
+  const img = document.querySelector('img[alt="povolani"]');
+  if (!lockedWords.hasBeenClickedPovolani) {
+    img.src = "Images/BAGpov.png";
+    lockedWords.hasBeenClickedPovolani = true;
   }
 
-  if (!lockedWords.randomPovolani2) {
-    const filteredOptions = options1Povolani.filter(word => word !== word1);
-    word2 = filteredOptions[Math.floor(Math.random() * filteredOptions.length)];
+  let word1 = options1Povolani[Math.floor(Math.random() * options1Povolani.length)];
+  let filteredOptions = options1Povolani.filter(word => word !== word1);
+  let word2 = filteredOptions[Math.floor(Math.random() * filteredOptions.length)];
 
-    const div2 = document.getElementById("randomPovolani2");
-    if (word2 && word2.trim() !== "") {
-      div2.textContent = word2;
-      div2.style.visibility = "visible";
-    } else {
-      if (div2) div2.style.visibility = "hidden";
-    }
+  const div1 = document.getElementById("randomPovolani1");
+  const div2 = document.getElementById("randomPovolani2");
+
+  if (word1 && word1.trim() !== "") {
+    div1.textContent = word1;
+    div1.style.visibility = "visible";
   }
+
+  if (word2 && word2.trim() !== "") {
+    div2.textContent = word2;
+    div2.style.visibility = "visible";
+  }
+
+  lockedWords.pairGeneratedPovolani = true;
 }
 
 
@@ -454,36 +458,32 @@ document.getElementById("counterMisto").textContent =
 options1Misto.length;
 
 function showWordMisto() {
-  let word1, word2;
+  if (lockedWords.pairGeneratedMisto) return;
 
-  if (!lockedWords.randomMisto1) {
-    word1 = options1Misto[Math.floor(Math.random() * options1Misto.length)];
-
-    if (word1 && word1.trim() !== "") {
-      const div1 = document.getElementById("randomMisto1");
-      div1.textContent = word1;
-      div1.style.visibility = "visible";
-    } else {
-      const div1 = document.getElementById("randomMisto1");
-      if (div1) div1.style.visibility = "hidden";
-    }
-  } else {
-    word1 = document.getElementById("randomMisto1").textContent;
+  const img = document.querySelector('img[alt="misto"]');
+  if (!lockedWords.hasBeenClickedPovolani) {
+    img.src = "Images/BAGmis.png";
+    lockedWords.hasBeenClickedMisto = true;
   }
 
-  if (!lockedWords.randomMisto2) {
-    const filteredOptions = options1Misto.filter(word => word !== word1);
-    word2 = filteredOptions[Math.floor(Math.random() * filteredOptions.length)];
+  let word1 = options1Misto[Math.floor(Math.random() * options1Misto.length)];
+  let filteredOptions = options1Misto.filter(word => word !== word1);
+  let word2 = filteredOptions[Math.floor(Math.random() * filteredOptions.length)];
 
-    if (word2 && word2.trim() !== "") {
-      const div2 = document.getElementById("randomMisto2");
-      div2.textContent = word2;
-      div2.style.visibility = "visible";
-    } else {
-      const div2 = document.getElementById("randomMisto2");
-      if (div2) div2.style.visibility = "hidden";
-    }
+  const div1 = document.getElementById("randomMisto1");
+  const div2 = document.getElementById("randomMisto2");
+
+  if (word1 && word1.trim() !== "") {
+    div1.textContent = word1;
+    div1.style.visibility = "visible";
   }
+
+  if (word2 && word2.trim() !== "") {
+    div2.textContent = word2;
+    div2.style.visibility = "visible";
+  }
+
+  lockedWords.pairGeneratedMisto = true;
 }
 
 
@@ -503,37 +503,34 @@ options1Emoce.length;
 
 
 function showWordEmoce() {
-  let word1, word2;
+  if (lockedWords.pairGeneratedEmoce) return;
 
-  if (!lockedWords.randomEmoce1) {
-    word1 = options1Emoce[Math.floor(Math.random() * options1Emoce.length)];
-
-    if (word1 && word1.trim() !== "") {
-      const div1 = document.getElementById("randomEmoce1");
-      div1.textContent = word1;
-      div1.style.visibility = "visible";
-    } else {
-      const div1 = document.getElementById("randomEmoce1");
-      if (div1) div1.style.visibility = "hidden";
-    }
-  } else {
-    word1 = document.getElementById("randomEmoce1").textContent;
+  const img = document.querySelector('img[alt="emoce"]');
+  if (!lockedWords.hasBeenClickedEmoce) {
+    img.src = "Images/BAGemo.png";
+    lockedWords.hasBeenClickedEmoce = true;
   }
 
-  if (!lockedWords.randomEmoce2) {
-    const filteredOptions = options1Emoce.filter(word => word !== word1);
-    word2 = filteredOptions[Math.floor(Math.random() * filteredOptions.length)];
+  let word1 = options1Emoce[Math.floor(Math.random() * options1Emoce.length)];
+  let filteredOptions = options1Emoce.filter(word => word !== word1);
+  let word2 = filteredOptions[Math.floor(Math.random() * filteredOptions.length)];
 
-    if (word2 && word2.trim() !== "") {
-      const div2 = document.getElementById("randomEmoce2");
-      div2.textContent = word2;
-      div2.style.visibility = "visible";
-    } else {
-      const div2 = document.getElementById("randomEmoce2");
-      if (div2) div2.style.visibility = "hidden";
-    }
+  const div1 = document.getElementById("randomEmoce1");
+  const div2 = document.getElementById("randomEmoce2");
+
+  if (word1 && word1.trim() !== "") {
+    div1.textContent = word1;
+    div1.style.visibility = "visible";
   }
+
+  if (word2 && word2.trim() !== "") {
+    div2.textContent = word2;
+    div2.style.visibility = "visible";
+  }
+
+  lockedWords.pairGeneratedEmoce = true;
 }
+
 
 
 
@@ -574,14 +571,17 @@ if (img) {
 
 
   if (id.includes("Povolani")) {
+  lockedWords.pairGeneratedPovolani = false;
   removeWordFromList(options1Povolani, chosenWord, "povolani");
   refreshCounterPovolani();
   saveList();
 } else if (id.includes("Misto")) {
+  lockedWords.pairGeneratedMisto = false;
   removeWordFromList(options1Misto, chosenWord, "misto");
   refreshCounterMisto();
   saveList();
 } else if (id.includes("Emoce")) {
+  lockedWords.pairGeneratedEmoce = false;
   removeWordFromList(options1Emoce, chosenWord, "emoce");
   refreshCounterEmoce();
   saveList();
